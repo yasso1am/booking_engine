@@ -5,5 +5,7 @@ FactoryBot.define do
     start_date "2018-06-26"
     end_date "2018-06-26"
     max_useable 1
+    kind "Summer"
+    value 5
   end
 end

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PromoCode, type: :model do
 
 	describe 'attributes' do
-		[:code, :description, :max_useable, :start_date, :end_date].each { |attr| it { should respond_to attr }}
+		[:code, :description, :max_useable, :start_date, :end_date, :value, :kind].each { |attr| it { should respond_to attr }}
 	end
 
 	describe 'validations' do
@@ -12,7 +12,10 @@ RSpec.describe PromoCode, type: :model do
 		it { should validate_presence_of(:max_useable) }
 		it { should validate_presence_of(:start_date) }
 		it { should validate_presence_of(:end_date) }
+		it { should validate_presence_of(:kind) }
+		it { should validate_presence_of(:value) }
 		it { should validate_numericality_of(:max_useable) }
+		it { should validate_numericality_of(:value) }
 		it { should validate_uniqueness_of(:code) }
 	end
 	
