@@ -1,8 +1,12 @@
 FactoryBot.define do
   factory :cabin do
-    type ""
-    building "MyString"
-    status "MyString"
+    size "Family"
+    building "A"
+    status "Available"
     ada_accessible false
+    smoking_room true
+    base_price 300
   end
 end
+
+
