@@ -4,11 +4,11 @@ FactoryBot.define do
     password 'password'
   end
   factory :reservation do
-    start_date "2018-06-26"
-    end_date "2018-06-26"
-    special_requests "Chocolate"
-    smoking_room false
-    size "Single"
+    start_date "2018-08-30"
+    end_date "2018-09-02"
+    special_requests "MyText"
+    smoking false
+    type ""
     ada_accessible false
     cabin_id nil
     user_id 1
