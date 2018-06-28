@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :user do
-    email 'test1@test.com'
+    email 'testy1@test.com'
     password 'password'
+    name 'stacy'
   end
   factory :reservation do
     start_date "2018-08-30"
