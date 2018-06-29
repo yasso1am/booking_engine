@@ -24,14 +24,11 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/cabins' component={FetchCabins} />
-            <Route exact path='/' component={Landing} />
-            <Route exact path='/landing' component={Home} />
-            <Route exact path='/' component={Home} />
+            <Route exact path='/landing' component={Landing} />
             <Route exact path='/about' component={AboutUs} />
             <ProtectedRoute exact path='/promocode' component={PromoCodeAdd} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
-
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
