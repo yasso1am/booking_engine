@@ -12,6 +12,7 @@ import FetchUser from './FetchUser';
 import { Switch, Route } from 'react-router-dom';
 import FetchCabins from './FetchCabins';
 import Landing from './Landing';
+import PromoCodeAdd from './PromoCodeAdd';
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
             <Route exact path='/landing' component={Home} />
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={AboutUs} />
+            <ProtectedRoute exact path='/promocode' component={PromoCodeAdd} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
 
