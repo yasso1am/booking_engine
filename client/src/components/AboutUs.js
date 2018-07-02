@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Divider, Container, Button, Grid } from 'semantic-ui-react';
 import styled from 'styled-components';
+import Footer from './Footer';
 
 class AboutUs extends Component {
 	render() {
@@ -69,17 +70,19 @@ class AboutUs extends Component {
 							</Grid.Row>
 						</Container>
 				</Grid>
+				<Footer />
 			</div>
 		)
 	}
 }
 
 const MainHeader = styled.div`
-	background-image: url(https://images.unsplash.com/photo-1488441770602-aed21fc49bd5?ixlib=rb-0.3.5&s=07ba5eba4f4a1d7963d1b9cbf00e5667&auto=format&fit=crop&w=2550&q=80);
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat; 
+	background-image: url('https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-0.3.5&s=2041fd6c2a8ac244c054a855f25c5fd6&auto=format&fit=crop&w=1350&q=80');
+	background-repeat: no-repeat;
+	background-position: center top; 
+	background-attachment: fixed
 	height: 450px;
+	display: flex;
 `
 const Paragraph = styled.p`
 	text-align: center;
@@ -91,7 +94,7 @@ const Header = styled.h3`
 `
 const InfoContainer = styled.div`
 	height: 150px;
-	background-color: #ce8782;
+	background-color: #00224B;
 	border: 1px solid white;
 	display: flex;
 	justify-content: space-around;
