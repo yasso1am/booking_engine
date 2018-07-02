@@ -36,7 +36,7 @@ class Api::PromoCodesController < ApplicationController
   end
 
   def promo_code_params
-    params.require(:promo_code).permit(:code, :description, :start_date, :end_date, :max_useable, :kind, :value)
+    params.require(:promo_code).permit(:code, :description, :start_date, :end_date, :max_useable, :kind, :value, :max_by_user)
   end
 
 end
