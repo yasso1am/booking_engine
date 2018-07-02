@@ -54,7 +54,7 @@ end
     description: @desc[@i],
     start_date: (@time1 > @time2 ? @time2 : @time1),
     end_date: (@time1 > @time2 ? @time1 : @time2),
-    max_useable: 10,
+    max_useable: 20,
     max_by_user: 1,
     kind: ["Percent", "Dollars off", "Total"].sample,
     value: 15.0
