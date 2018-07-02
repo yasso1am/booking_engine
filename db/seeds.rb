@@ -1,37 +1,38 @@
 @x = 1
 @i = 0
-@codes =    [
-              'SUMMER2018',
-              'WOOOCABINS',
-              'YELLOWSTONE',
-              'ILUVN8UR',
-              'CABINLYFE', 
-              'FREEMONEYS', 
-              'DISCOUNTVAYCAY', 
-              'GETAWAYFROMURKIDS', 
-              'PROMOCODES', 
-              'NOMOREIDEAS'
-            ]
-@desc =     [
-              'Spend your summer at Yellowstone in our awesome cabins!',
-              'Get your party on in these dope cabins',
-              'Here is a cool description of Yellowstone!',
-              'Do you love nature? So do we! Give us moneys!',
-              'Cool people tend to spend a lot of time in cabins, so you should too',
-              'Here\'s the free moneys! take em',
-              'Do you like cheap vacations? Look no further than these cabins plzz',
-              'Want to escape your kids for a while?  Come vacation here!',
-              'PROMOCODES ARE THE BEST!!!',
-              'Really ran out of promocode ideas here.. HI MOM!'
-            ]
+@codes = [
+  'SUMMER2018',
+  'WOOOCABINS',
+  'YELLOWSTONE',
+  'ILUVN8UR',
+  'CABINLYFE', 
+  'FREEMONEYS', 
+  'DISCOUNTVAYCAY', 
+  'GETAWAYFROMURKIDS', 
+  'PROMOCODES', 
+  'NOMOREIDEAS'
+]
+@desc = [
+  'Spend your summer at Yellowstone in our awesome cabins!',
+  'Get your party on in these dope cabins',
+  'Here is a cool description of Yellowstone!',
+  'Do you love nature? So do we! Give us moneys!',
+  'Cool people tend to spend a lot of time in cabins, so you should too',
+  'Here\'s the free moneys! take em',
+  'Do you like cheap vacations? Look no further than these cabins plzz',
+  'Want to escape your kids for a while?  Come vacation here!',
+  'PROMOCODES ARE THE BEST!!!',
+  'Really ran out of promocode ideas here.. HI MOM!'
+]
 @requests = [
-              "We don't want to see any kids from our room",
-              "No peanuts in minifridge",
-              "Wake up calls at 6am",
-              "We would like blankets made of gold",
-              "Please leave 20 extra towels in the bathroom",
-              "Something something picky customers..."
-            ]
+  "We don't want to see any kids from our room",
+  "No peanuts in minifridge",
+  "Wake up calls at 6am",
+  "We would like blankets made of gold",
+  "Please leave 20 extra towels in the bathroom",
+  "Something something picky customers..."
+]
+
 36.times do
   cabinSize = ['Single', 'Family'].sample
   cabin = Cabin.create(
@@ -54,6 +55,7 @@ end
     start_date: (@time1 > @time2 ? @time2 : @time1),
     end_date: (@time1 > @time2 ? @time1 : @time2),
     max_useable: 10,
+    max_by_user: 1,
     kind: ["Percent", "Dollars off", "Total"].sample,
     value: 15.0
   )
