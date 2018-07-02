@@ -19,7 +19,7 @@ class PromoCodeAdd extends React.Component {
     event.preventDefault();
     const { code } = this.state;
     const { dispatch } = this.props;
-    axios.post('/api/user_promo_codes', {code} )
+    axios.post('/api/user_promo_codes', {code})
       .then( res => {
         dispatch(setHeaders(res.headers))
         this.setState( { code: '' } )
