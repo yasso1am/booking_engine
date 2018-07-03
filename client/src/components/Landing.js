@@ -65,7 +65,7 @@ class Landing extends Component {
       <Segment basic>
         <Header as='h1' textAlign='center'>Terra Nova Opening Soon</Header>
           <Image src='https://specials-images.forbesimg.com/dam/imageserve/521462644/960x0.jpg?fit=scale' alt="YellowStone" height="450px;"  centered />
-        <Header textalign='center' as='h1' > If you want to know more about us, leave us your info</Header>
+        <Header textAlign='center' as='h1' > If you want to know more about us, leave us your info</Header>
         <FormStyle > 
         <Container>
           <Form onSubmit={this.handleSubmit}>

@@ -13,6 +13,7 @@ import { Switch, Route } from 'react-router-dom';
 import FetchCabins from './FetchCabins';
 import Landing from './Landing';
 import PromoCodeAdd from './PromoCodeAdd';
+import Gallery1 from './Gallery1';
 
 class App extends Component {
   render() {
@@ -22,11 +23,9 @@ class App extends Component {
         <Flash />
         <FetchUser>
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/cabins' component={FetchCabins} />
-            <Route exact path='/landing' component={Landing} />
-            <Route exact path='/about' component={AboutUs} />
-            <ProtectedRoute exact path='/promocode' component={PromoCodeAdd} />
+            <Route exact path='/' component={Landing} />
+            <Route exact path='/landing' component={Home} />
+            <Route exact path='/gallery' component={Gallery1} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />
