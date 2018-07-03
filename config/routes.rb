@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :promo_codes
     resources :reservations
     resources :user_promo_codes
+    resources :users, only: [:index, :show, :update, :destroy]
   end
 
   #Do not place any routes below this one
