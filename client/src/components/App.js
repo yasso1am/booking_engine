@@ -24,6 +24,8 @@ class App extends Component {
         <FetchUser>
           <Switch>
             <Route exact path='/' component={Landing} />
+            <Route exact path='/about' component={AboutUs} />
+            <Route exact path='/cabins' component={FetchCabins} />
             <Route exact path='/home' component={Home} />
             <Route exact path='/landing' component={Home} />
             <Route exact path='/gallery' component={Gallery1} />
