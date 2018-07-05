@@ -10,20 +10,20 @@ class Api::UserPromoCodesController < ApplicationController
   end
 
   def create 
-
     if PromoCode.where(code: params[:code]) 
       promo_code_id = PromoCode.where(code: params[:code])[0].id
-      user_id = current_user.id
-      x = UserPromoCode.new({user_id: user_id, promo_code_id: promo_code_id}) if UserPromoCode.check_codes(promo_code_id, user_id)
-      if x.save
-        render json: x
+      result = UserPromoCode.check_codes(promo_code_id, user_id)
+      if result.valid == false
+        render json: {errors: result.message}, status: 422
       else
-        render json: error
+        user_promo_code = UserPromoCode.create({user_id: current_user.id, promo_code_id: promo_code_id})
+          render json: user_promo_code
       end
     else
-      render json: error
+      render json: {errors: promo_code.errors.full_messages.join(',')}, status: 422
     end
   end
+  
 
   def destroy
     destroy @user_promo_code
