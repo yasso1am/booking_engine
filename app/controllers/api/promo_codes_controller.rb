@@ -1,6 +1,6 @@
 class Api::PromoCodesController < ApplicationController
   before_action :set_promo_code, only:  [:show, :update, :destroy]
-
+  
   def index
    render json: PromoCode.all
   end
@@ -10,7 +10,7 @@ class Api::PromoCodesController < ApplicationController
   end
 
   def create
-    promo_code = PromoCode.create(promo_code_params)
+    promo_code = PromoCode.new(promo_code_params)
     if promo_code.save
       render json: promo_code
     else

@@ -14,6 +14,7 @@ import FetchCabins from './FetchCabins';
 import Landing from './Landing';
 import PromoCodeAdd from './PromoCodeAdd';
 import Gallery1 from './Gallery1';
+import AdminPromoCodeForm from './AdminPromoCodeForm';
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
             <Route exact path='/home' component={Home} />
             <Route exact path='/landing' component={Home} />
             <Route exact path='/gallery' component={Gallery1} />
+            <ProtectedRoute exact path='/admin_promo_code_add' component={AdminPromoCodeForm} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />
