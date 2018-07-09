@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Grid, Container } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 class Footer extends Component {

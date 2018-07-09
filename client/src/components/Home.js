@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Header } from 'semantic-ui-react';
-import { Container, Divider, Grid } from 'semantic-ui-react';
+import { Container, Divider } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Footer from './Footer';
 
@@ -82,19 +81,6 @@ const MainParagraph = styled.p`
   font-family: "Didot 24 A","Didot 24 B"", Palatino, serif;
   padding-bottom: 80px;
   font-size: 25px;
-`
-
-const Photo = styled.div`
-background-image: url(https://images.unsplash.com/photo-1511445905762-94360cdeeae6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=21c59e583d3cc45faaa9ec4e5b279b3a&auto=format&fit=crop&w=1650&q=80);
-display: flex;
-background-size: cover;
-background-position: center center;
-background-repeat: no-repeat; 
-align-content: center;
-justify-content: center;
-height: 500px;
-width: auto;
-overflow: scroll;
 `
 
 export default Home;

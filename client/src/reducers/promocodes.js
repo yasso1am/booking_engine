@@ -1,6 +1,4 @@
 import axios from 'axios';
-import React from 'react';
-import { setHeaders } from '../actions/headers';
 import { setFlash } from '../actions/flash';
 const ADD_PROMO_CODE = 'ADD_PROMO_CODE';
 
@@ -20,5 +18,5 @@ export default (state = [], action) => {
 			return action.promo_codes;
 		default:
 			return state;
-	};
+	}
 };

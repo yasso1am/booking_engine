@@ -12,7 +12,6 @@ import FetchUser from './FetchUser';
 import { Switch, Route } from 'react-router-dom';
 import FetchCabins from './FetchCabins';
 import Landing from './Landing';
-import PromoCodeAdd from './PromoCodeAdd';
 import Gallery1 from './Gallery1';
 import AdminPromoCodeForm from './AdminPromoCodeForm';
 

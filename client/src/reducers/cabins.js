@@ -13,8 +13,8 @@ export const getCabins = () => {
 export default (state = [], action) => {
   switch(action.type) {
     case CABINS:
-      return action.cabins
+      return action.cabins;
     default:
-      return state
-  };
+      return state;
+  }
 };

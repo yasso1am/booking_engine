@@ -11,7 +11,6 @@ import {
 import { connect } from 'react-redux';
 import { setFlash } from '../actions/flash';
 import styled from 'styled-components';
-import { addUser } from '../actions/users';
 
 class Landing extends Component {
   state = { name: '', email: '', emailConfirmation: '', checkbox: false, day: 0, hour: 0, minute: 0, second: 0 };
