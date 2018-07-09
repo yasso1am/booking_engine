@@ -4,9 +4,10 @@ const user = (state = {}, action) => {
       return action.user;
     case 'LOGOUT':
       return {};
-    default:
+    default: 
       return state;
   }
 };
 
 export default user;
+

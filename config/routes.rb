@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   mount_devise_token_auth_for 'User', at: 'api/auth'
   
   namespace :api do
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
     resources :reservations
     resources :user_promo_codes
     resources :users, only: [:index, :show, :update, :destroy]
+    resources :temp_users, only: [:create]
   end
 
   #Do not place any routes below this one

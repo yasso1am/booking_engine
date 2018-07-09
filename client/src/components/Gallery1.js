@@ -11,6 +11,7 @@ render() {
   const IMAGES =
   [{
           src: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin3_of_26_1.jpg",
+          alt: "Yellowstone",
           thumbnail: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin3_of_26_1.jpg",
           thumbnailWidth: 320,
           thumbnailHeight: 174,
@@ -18,6 +19,7 @@ render() {
   },
   {
           src: "http://mountaintopcabinrentals.com/CabinRentals/Mountain_Dream_Lodge_-9_1.jpg",
+          alt: "Yellowstone",
           thumbnail: "http://mountaintopcabinrentals.com/CabinRentals/Mountain_Dream_Lodge_-9_1.jpg",
           thumbnailWidth: 320,
           thumbnailHeight: 212,
@@ -26,12 +28,14 @@ render() {
   
   {
           src: "http://mountaintopcabinrentals.com/CabinRentals/Mountain_Dream_Lodge_-15_1.jpg",
+          alt: "Yellowstone",
           thumbnail: "http://mountaintopcabinrentals.com/CabinRentals/Mountain_Dream_Lodge_-15_1.jpg",
           thumbnailWidth: 320,
           thumbnailHeight: 212
   },
   {
         src: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin1_of_26_1.jpg",
+        alt: "Yellowstone",
         thumbnail: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin1_of_26_1.jpg",
         thumbnailWidth: 320,
         thumbnailHeight: 212,
@@ -39,6 +43,7 @@ render() {
 },
 {
         src: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin7_of_26_1.jpg",
+        alt: "Yellowstone",
         thumbnail: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin7_of_26_1.jpg",
         thumbnailWidth: 320,
         thumbnailHeight: 212,
@@ -47,6 +52,7 @@ render() {
 
 {
         src: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin13_of_26_1.jpg",
+        alt: "Yellowstone",
         thumbnail: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin13_of_26_1.jpg",
         thumbnailWidth: 320,
         thumbnailHeight: 212,
@@ -55,6 +61,7 @@ render() {
 
 {
         src: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin19_of_26_1.jpg",
+        alt: "Yellowstone",
         thumbnail: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin19_of_26_1.jpg",
         thumbnailWidth: 320,
         thumbnailHeight: 212,
@@ -62,6 +69,7 @@ render() {
 },
 {
         src: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin26_of_26_1.jpg",
+        alt: "Yellowstone",
         thumbnail: "http://mountaintopcabinrentals.com/CabinRentals/Amazing_Grace_Cabin26_of_26_1.jpg",
         thumbnailWidth: 320,
         thumbnailHeight: 212,
