@@ -17,6 +17,7 @@ RSpec.describe PromoCode, type: :model do
 		it { should validate_numericality_of(:max_useable) }
 		it { should validate_numericality_of(:value) }
 		it { should validate_uniqueness_of(:code) }
+		it { should validate_inclusion_of(:kind).in_array(['dollar_amount', 'percentage'])}
 	end
 	
 	describe 'relationships' do

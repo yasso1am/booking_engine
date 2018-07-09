@@ -5,4 +5,5 @@ class PromoCode < ApplicationRecord
   validates :max_useable, numericality: { only_integer: true }
   validates :value, numericality: true
   validates :code, uniqueness: true
+  validates_inclusion_of :kind, in: ['dollar_amount', 'percentage']
 end
