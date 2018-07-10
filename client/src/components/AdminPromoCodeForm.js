@@ -7,7 +7,13 @@ import {
 	Container,
 	Header,
 	Divider,
+	Select,
 } from 'semantic-ui-react';
+
+const options = [
+  {  key: 'dollar_amount', text: 'Dollar Value', value: 'dollar_amount' },
+  {  key: 'percentage', text: 'Percentage', value: 'percentage' },
+];
 
 class AdminPromoCodeForm extends Component {
 	initialState = {
@@ -23,9 +29,8 @@ class AdminPromoCodeForm extends Component {
 
 	state = {...this.initialState};
 
-	handleChange = (e) => {
-   const { name, value } = e.target;
-   this.setState({ [name]: value });
+  handleChange = (e, { name, value }) => {
+    this.setState({ [name]: value })
   }
 
   handleSubmit = (e) => {
@@ -53,7 +58,7 @@ class AdminPromoCodeForm extends Component {
 	      		<Form.Input required label='Max Useable' type="number" placeholder='Max Useable' name="max_useable" value={max_useable} onChange={this.handleChange} />
 	    		</Form.Group>
 	    		<Form.Group widths='equal'>
-	      		<Form.Input required label='Kind' placeholder='Kind' name="kind" value={kind} onChange={this.handleChange} />
+	      		<Form.Select value={kind} name="kind" label='Kind' options={options} placeholder='Kind' required onChange={this.handleChange} />
 	      		<Form.Input required label='Value' type="number" placeholder='Value' name="value" value={value} onChange={this.handleChange} />
 	      		<Form.Input required label='Max By User' type="number" placeholder='Max By User' name="max_by_user" value={max_by_user} onChange={this.handleChange} />
 	    		</Form.Group>
