@@ -21,6 +21,10 @@ class Api::UsersController < ApplicationController
   	@user.destroy
   end
 
+  def employees
+    render json: User.employees
+  end
+
   private
   def user_params
   	params.require(:user).permit(:name, :nickname, :image, :email, :role)

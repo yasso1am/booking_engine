@@ -34,7 +34,7 @@
 ]
 
 36.times do
-  cabinSize = ['Single', 'Family'].sample
+  cabinSize = ['single', 'family'].sample
   cabin = Cabin.create(
     size: cabinSize,
     building: @x,
@@ -55,8 +55,8 @@ end
     start_date: (@time1 > @time2 ? @time2 : @time1),
     end_date: (@time1 > @time2 ? @time1 : @time2),
     max_useable: 20,
-    max_by_user: 1,
-    kind: ["Percent", "Dollars off", "Total"].sample,
+    max_by_user: 2,
+    kind: ['dollar_amount', 'percentage', 'total'].sample,
     value: 15.0
   )
   @i += 1
@@ -67,7 +67,8 @@ end
     name: Faker::Name.name_with_middle,
     nickname: Faker::WorldOfWarcraft.hero,
     password: "password",
-    email: Faker::Internet.email
+    email: Faker::Internet.email,
+    role: ["client", "employee", "admin"].sample
   )
   1.times do
     @time1 = Time.at(rand * Time.now.to_i)
@@ -77,7 +78,7 @@ end
       end_date: (@time1 > @time2 ? @time1 : @time2),
       special_requests: @requests.sample,
       smoking_room: [true, false].sample,
-      size: ["Single", "Family"].sample,
+      size: ["single", "family"].sample,
       ada_accessible: [true, false].sample,
       user_id: user.id,
     )

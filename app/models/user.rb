@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
 
   validates :email, :name, presence: true 
   validates :email, uniqueness: { case_sensitive: true }
+
+  def self.employees
+    return User.where(role: "employee")
+  end
 end

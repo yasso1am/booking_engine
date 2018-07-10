@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :user_promo_codes
     resources :users, only: [:index, :show, :update, :destroy]
     resources :temp_users, only: [:create]
+    get 'employees', to: 'users#employees'
+
   end
 
   #Do not place any routes below this one
