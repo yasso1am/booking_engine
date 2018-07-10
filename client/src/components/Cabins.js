@@ -9,9 +9,10 @@ import {
   Card,
   Image,
   Icon,
-  Button
-} from "semantic-ui-react";
-import styled from "styled-components";
+  Grid,
+} from 'semantic-ui-react';
+import styled from 'styled-components';
+import Footer from './Footer';
 
 class Cabins extends React.Component {
   state = { category: "" };
@@ -94,6 +95,55 @@ class Cabins extends React.Component {
         </Container>
       </React.Fragment>
     );
+    return cabins.map( (cabin, i) =>
+    <div>
+      <Grid stackable>
+        <Grid.Row>
+          <Grid.Column mobile={4} tablet={8} computer={16}>
+            <Card key={i}>
+              <Image centered bordered src={defaultImage} />  
+              <Card.Content textAlign="center">
+                <Card.Header> {cabin.size} </Card.Header>
+                <Card.Meta>
+                  ${ cabin.base_price }/night
+                </Card.Meta>
+                <Card.Description> A beautiful cabin - awaiting your stay </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <Card.Meta>
+                  { cabin.ada_accessible && <Icon name="handicap" size="big" />} 
+                </Card.Meta>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+      <Footer/>
+    </div>
+    )
+  }
+  
+  render () {
+    return (
+      <div>
+        <Grid stackable>
+          <Grid.Row>
+            <Grid.Column mobile={4} tablet={8} computer={16}>
+          <React.Fragment>
+          <HeaderImage>
+            <Header as="h1" inverted> All Cabins </Header>
+          </HeaderImage>
+            <Container>
+              <Card.Group itemsPerRow={3}>
+                { this.displayRooms() }
+              </Card.Group>
+            </Container>
+          </React.Fragment>
+          </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </div>
+    )
   }
 }
 

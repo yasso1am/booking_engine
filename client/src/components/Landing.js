@@ -7,11 +7,13 @@ import {
   Segment,
   Checkbox,
   Container,
+  Grid,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { setFlash } from '../actions/flash';
 import { addUser } from '../actions/contact';
 import styled from 'styled-components';
+import Footer from './Footer';
 
 class Landing extends Component {
   state = { first_name: '', last_name: '', email: '', emailConfirmation: '', checkbox: false, day: 0, hour: 0, minute: 0, second: 0 };
@@ -63,70 +65,67 @@ class Landing extends Component {
   render() {
     const { first_name, last_name, email, emailConfirmation, day, minute, second, hour } = this.state;
     return (
-      <Background>
-        <Segment basic>
-          <Header as='h1' textAlign='center'>Terra Nova Opening Soon</Header>
-          <Image src='https://specials-images.forbesimg.com/dam/imageserve/521462644/960x0.jpg?fit=scale' alt="YellowStone" height="450px;" centered />
-          <Header textAlign='center' as='h1' > If you want to know more about us, leave us your info</Header>
-          <FormStyle >
-            <Container>
-              <Form onSubmit={ this.handleSubmit }>
-                <Form.Field >
-                  <label htmlFor='first_name'>First Name</label>
-                  <input
-                    placeholder='First Name'
-                    name='first_name'
-                    required
-                    value={ first_name }
-                    onChange={ this.handleChange }
-                  />
-                </Form.Field>
-                <Form.Field >
-                  <label htmlFor='last_name'>Last Name</label>
-                  <input
-                    placeholder='Last Name'
-                    name='last_name'
-                    required
-                    value={ last_name }
-                    onChange={ this.handleChange }
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label htmlFor='email'>Email</label>
-                  <input
-                    placeholder='Email'
-                    name='email'
-                    required
-                    value={ email }
-                    onChange={ this.handleChange }
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label htmlFor='emailConfirmation'>Email Confirmation</label>
-                  <input
-                    placeholder='Email Confirmation'
-                    name="emailConfirmation"
-                    type='email'
-                    required
-                    value={ emailConfirmation }
-                    onChange={ this.handleChange }
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <Checkbox label='Check to recieve updates'
-                    onChange={ this.handleCheckbox } />
-                </Form.Field>
-                <Segment basic textAlign='center'>
-                  <Button type='submit'>Submit</Button>
+      <div>
+        <Grid stackable>
+          <Grid.Row>
+            <Grid.Column mobile={4} tablet={8} computer={16}>
+              <Background>
+                <Segment basic>
+                  <Header as='h1' textAlign='center'>Terra Nova Opening Soon</Header>
+                  <Image src='https://specials-images.forbesimg.com/dam/imageserve/521462644/960x0.jpg?fit=scale' alt="YellowStone" height="450px;" centered />
+                  <Header textAlign='center' as='h1' > If you want to know more about us, leave us your info</Header>
+                  <Container>
+                    <Form onSubmit={this.handleSubmit}>
+                      <Grid.Row>
+                        <Grid.Column mobile={4} tablet={8} computer={16}>
+                          <Form.Input
+                            label='Name'
+                            placeholder='Name'
+                            name='name'
+                            required
+                            value={name}
+                            onChange={this.handleChange}
+                          />
+                          <Form.Input
+                            label='Email'
+                            placeholder='Email'
+                            name='email'
+                            required
+                            value={email}
+                            onChange={this.handleChange}
+                          />
+                          <Form.Input
+                            label='Email Confirmation'
+                            placeholder='Email Confirmation'
+                            name="emailConfirmation"
+                            type='email'
+                            required
+                            value={emailConfirmation}
+                            onChange={this.handleChange}
+                          />
+                          <Checkbox label='Check to recieve updates'
+                            onChange={this.handleCheckbox} />
+                        </Grid.Column>
+                      </Grid.Row>
+                      <Segment basic textAlign='center'>
+                        <Button type='submit'>Submit</Button>
+                      </Segment>
+                      <Grid.Row>
+                        <Grid.Column mobile={4} tablet={8} computer={16}>
+                          <StyledClock id="demo">{day + "d " + hour + "h "
+                            + minute + "m " + second + "s "} </StyledClock>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Form>
+                  </Container>
+                  <Header textAlign="center" as='h1' >Until We Open</Header>
                 </Segment>
-                <StyledClock id="demo">{ day + "d " + hour + "h "
-                  + minute + "m " + second + "s " } </StyledClock>
-              </Form>
-            </Container>
-          </FormStyle>
-          <Header textAlign="center" as='h1' >Until We Open</Header>
-        </Segment>
-      </Background>
+              </Background>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+        <Footer />
+      </div>
     );
   }
 }
@@ -139,10 +138,6 @@ const StyledClock = styled.div`
 `
 const Background = styled.div`
   background: slategray;
-`
-const FormStyle = styled.div`
-  width: 655px;
-  margin: auto;
 `
 
 export default connect()(Landing);
