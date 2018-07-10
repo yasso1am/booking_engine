@@ -10,17 +10,18 @@ import {
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { setFlash } from '../actions/flash';
+import { addUser } from '../actions/contact';
 import styled from 'styled-components';
 
 class Landing extends Component {
-  state = { name: '', email: '', emailConfirmation: '', checkbox: false, day: 0, hour: 0, minute: 0, second: 0 };
-
+  state = { first_name: '', last_name: '', email: '', emailConfirmation: '', checkbox: false, day: 0, hour: 0, minute: 0, second: 0 };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { email, emailConfirmation, checkbox } = this.state;
+    const { first_name, last_name, email, emailConfirmation, checkbox } = this.state;
     if (email === emailConfirmation && checkbox === true) {
-      this.setState({ name: '', email: '', emailConfirmation: '', checkbox: false });
+      this.setState({ first_name: '', last_name: '', email: '', emailConfirmation: '', checkbox: false });
+      this.props.dispatch(addUser({first_name, last_name, email}));
       this.props.dispatch(setFlash('Thank you, We look foreward to seeing you!', 'green'));
     } else
       this.props.dispatch(setFlash('Emails do not match!, please try again', 'red'));
@@ -60,7 +61,7 @@ class Landing extends Component {
   }
 
   render() {
-    const { name, email, emailConfirmation, day, minute, second, hour } = this.state;
+    const { first_name, last_name, email, emailConfirmation, day, minute, second, hour } = this.state;
     return (
       <Background>
         <Segment basic>
@@ -69,15 +70,25 @@ class Landing extends Component {
           <Header textAlign='center' as='h1' > If you want to know more about us, leave us your info</Header>
           <FormStyle >
             <Container>
-              <Form onSubmit={this.handleSubmit}>
+              <Form onSubmit={ this.handleSubmit }>
                 <Form.Field >
-                  <label htmlFor='name'>Name</label>
+                  <label htmlFor='first_name'>First Name</label>
                   <input
-                    placeholder='Name'
-                    name='name'
+                    placeholder='First Name'
+                    name='first_name'
                     required
-                    value={name}
-                    onChange={this.handleChange}
+                    value={ first_name }
+                    onChange={ this.handleChange }
+                  />
+                </Form.Field>
+                <Form.Field >
+                  <label htmlFor='last_name'>Last Name</label>
+                  <input
+                    placeholder='Last Name'
+                    name='last_name'
+                    required
+                    value={ last_name }
+                    onChange={ this.handleChange }
                   />
                 </Form.Field>
                 <Form.Field>
@@ -86,8 +97,8 @@ class Landing extends Component {
                     placeholder='Email'
                     name='email'
                     required
-                    value={email}
-                    onChange={this.handleChange}
+                    value={ email }
+                    onChange={ this.handleChange }
                   />
                 </Form.Field>
                 <Form.Field>
@@ -97,19 +108,19 @@ class Landing extends Component {
                     name="emailConfirmation"
                     type='email'
                     required
-                    value={emailConfirmation}
-                    onChange={this.handleChange}
+                    value={ emailConfirmation }
+                    onChange={ this.handleChange }
                   />
                 </Form.Field>
                 <Form.Field>
                   <Checkbox label='Check to recieve updates'
-                    onChange={this.handleCheckbox} />
+                    onChange={ this.handleCheckbox } />
                 </Form.Field>
                 <Segment basic textAlign='center'>
                   <Button type='submit'>Submit</Button>
                 </Segment>
-                <StyledClock id="demo">{day + "d " + hour + "h "
-                  + minute + "m " + second + "s "} </StyledClock>
+                <StyledClock id="demo">{ day + "d " + hour + "h "
+                  + minute + "m " + second + "s " } </StyledClock>
               </Form>
             </Container>
           </FormStyle>
