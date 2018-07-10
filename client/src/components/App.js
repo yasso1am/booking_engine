@@ -16,6 +16,7 @@ import Landing from './Landing';
 import Gallery1 from './Gallery1';
 import AdminPromoCodeForm from './AdminPromoCodeForm';
 import AdminDashboard from './AdminDashboard';
+import Family from './Family';
 import Employees from './Employees';
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
             <ProtectedRoute exact path='/admin_promo_code_add' component={AdminPromoCodeForm} />
             <ProtectedRoute exact path='/admin_dashboard' component={AdminDashboard} />
             <Route exact path='/single' component={Single}/>
+            <Route exact path='/family' component={Family}/>
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />

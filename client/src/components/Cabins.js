@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom"; 
 import {
   Divider,
   Dropdown,
@@ -44,7 +45,10 @@ class Cabins extends React.Component {
       <Card key={i}>
         <Image centered bordered src={defaultImage} />
         <Card.Content textAlign="center">
-          <Card.Header> {cabin.size} </Card.Header>
+          <Link to={`/${cabin.size}`}>
+            <Card.Header > {cabin.size}  </Card.Header>
+          </Link>
+
           <Card.Meta>${cabin.base_price}/night</Card.Meta>
           <Card.Description>
             {" "}
