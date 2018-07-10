@@ -6,6 +6,7 @@ import Login from './Login';
 import Register from './Register';
 import Flash from './Flash';
 import Home from './Home';
+import Single from './Single';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
@@ -32,6 +33,7 @@ class App extends Component {
             <Route exact path='/gallery' component={Gallery1} />
             <ProtectedRoute exact path='/admin_promo_code_add' component={AdminPromoCodeForm} />
             <ProtectedRoute exact path='/admin_dashboard' component={AdminDashboard} />
+            <Route exact path='/single' component={Single}/>
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />
