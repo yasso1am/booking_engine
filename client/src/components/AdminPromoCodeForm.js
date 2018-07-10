@@ -35,16 +35,19 @@ class AdminPromoCodeForm extends Component {
 
   handleSubmit = (e) => {
   	e.preventDefault();
+  	const { toggleForm } = this.props;
   	const promo_code = this.state;
   	const { dispatch } = this.props;
   	dispatch(addPromoCode(promo_code));
   	this.setState({...this.initialState});
+  	toggleForm();
   }
 
 	render () {
 		const { code, description, start_date, end_date, max_useable, max_by_user, kind, value } = this.state;
 		return (
 			<Container>
+				<Divider hidden />
 				<Header textAlign='center'>Submit A New Promo Code</Header>
 				<Divider hidden/>
 				<Form onSubmit={this.handleSubmit}>
@@ -62,7 +65,7 @@ class AdminPromoCodeForm extends Component {
 	      		<Form.Input required label='Value' type="number" placeholder='Value' name="value" value={value} onChange={this.handleChange} />
 	      		<Form.Input required label='Max By User' type="number" placeholder='Max By User' name="max_by_user" value={max_by_user} onChange={this.handleChange} />
 	    		</Form.Group>
-	    		<Button type="submit">Submit</Button>
+	    		<Button type="submit" color="green">Submit</Button>
 				</Form>
 			</Container>
 		)
