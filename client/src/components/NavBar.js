@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
-import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { handleLogout } from '../actions/auth';
+import React, { Component } from "react";
+import { Menu } from "semantic-ui-react";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { handleLogout } from "../actions/auth";
+import styled from "styled-components";
 
 class NavBar extends Component {
   rightNavs = () => {
@@ -10,57 +11,65 @@ class NavBar extends Component {
 
     if (user.id) {
       return (
-        <Menu.Menu position='right'>
+        <Menu.Menu position="right">
           <Menu.Item
-            name='Logout'
+            name="Logout"
             onClick={() => dispatch(handleLogout(history))}
           />
         </Menu.Menu>
       );
     }
     return (
-      <Menu.Menu position='right'>
-        <Link to='/register'>
-          <Menu.Item name='Register' />
+      <Menu.Menu position="right">
+        <Link to="/register">
+          <Menu.Item name="Register" />
         </Link>
-        <Link to='/login'>
-          <Menu.Item name='Login' />
+        <Link to="/login">
+          <Menu.Item name="Login" />
         </Link>
       </Menu.Menu>
     );
-  }
+  };
 
   render() {
     return (
-      <div>
-        <Menu pointing secondary>
-          <Link to='/'>
-            <Menu.Item name='home' />
+      <Spacer>
+        <StyledMenu fixed="top" pointing secondary>
+          <Link to="/">
+            <Menu.Item name="home" />
           </Link>
-          <Link to='/about'>
-            <Menu.Item name='about us' />
+          <Link to="/about">
+            <Menu.Item name="about us" />
           </Link>
           <Link to="/cabins">
-            <Menu.Item name='Rooms' />
+            <Menu.Item name="Rooms" />
           </Link>
           <Link to="/reservation">
-            <Menu.Item name='Reservation' />
+            <Menu.Item name="Reservation" />
           </Link>
           <Link to="/feature">
-            <Menu.Item name='Features' />
+            <Menu.Item name="Features" />
           </Link>
           <Link to="/blog">
-            <Menu.Item name='Blog' />
+            <Menu.Item name="Blog" />
           </Link>
           <Link to="/contact">
-            <Menu.Item name='Contact' />
+            <Menu.Item name="Contact" />
           </Link>
-          { this.rightNavs() }
-        </Menu>
-      </div>
+          {this.rightNavs()}
+        </StyledMenu>
+      </Spacer>
     );
   }
 }
+
+const Spacer = styled.div`
+  padding-top: 40px;
+`;
+
+const StyledMenu = styled(Menu)`
+  background-color: #fff !important;
+`;
 
 const mapStateToProps = state => {
   return { user: state.user };
