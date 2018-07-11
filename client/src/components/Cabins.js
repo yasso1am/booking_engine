@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import {
   Divider,
   Dropdown,
@@ -10,9 +10,10 @@ import {
   Image,
   Icon,
   Grid,
-} from 'semantic-ui-react';
-import styled from 'styled-components';
-import Footer from './Footer';
+  Button,
+} from "semantic-ui-react";
+import styled from "styled-components";
+import Footer from "./Footer";
 
 class Cabins extends React.Component {
   state = { category: "" };
@@ -26,7 +27,7 @@ class Cabins extends React.Component {
       { key: 4, text: "Single", value: "single" },
       { key: 3, text: "Family", value: "family" },
       { key: 1, text: "Smoking Room", value: "smoking_room" },
-      { key: 2, text: "ADA Accessible", value: "ada_accessible" },
+      { key: 2, text: "ADA Accessible", value: "ada_accessible" }
     ];
   };
 
@@ -47,9 +48,11 @@ class Cabins extends React.Component {
         <Image centered bordered src={defaultImage} />
         <Card.Content textAlign="center">
           <Link to={`/${cabin.size}`}>
-            <Card.Header > {cabin.size}  </Card.Header>
+            <Card.Header>
+              {" "}
+              {cabin.size.charAt(0).toUpperCase() + cabin.size.substr(1)}{" "}
+            </Card.Header>
           </Link>
-
           <Card.Meta>${cabin.base_price}/night</Card.Meta>
           <Card.Description>
             {" "}
@@ -69,81 +72,40 @@ class Cabins extends React.Component {
   render() {
     const { category } = this.state;
     return (
-      <React.Fragment>
-        <HeaderImage>
-          <Header as="h1" inverted>
-            {" "}
-            All Cabins{" "}
-          </Header>
-        </HeaderImage>
-        <Container>
-          <Dropdown
-            placeholder="Filter by type"
-            fluid
-            selection
-            options={this.categoryOptions()}
-            value={category}
-            onChange={this.handleChange}
-          />
-          {category && (
-            <Button fluid basic onClick={() => this.setState({ category: "" })}>
-              Clear Filters
-            </Button>
-          )}
-          <Divider hidden/>
-          <Card.Group itemsPerRow={3}>{this.displayRooms()}</Card.Group>
-        </Container>
-      </React.Fragment>
-    );
-    return cabins.map( (cabin, i) =>
-    <div>
       <Grid stackable>
         <Grid.Row>
           <Grid.Column mobile={4} tablet={8} computer={16}>
-            <Card key={i}>
-              <Image centered bordered src={defaultImage} />  
-              <Card.Content textAlign="center">
-                <Card.Header> {cabin.size} </Card.Header>
-                <Card.Meta>
-                  ${ cabin.base_price }/night
-                </Card.Meta>
-                <Card.Description> A beautiful cabin - awaiting your stay </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <Card.Meta>
-                  { cabin.ada_accessible && <Icon name="handicap" size="big" />} 
-                </Card.Meta>
-              </Card.Content>
-            </Card>
+            <HeaderImage>
+              <Header as="h1" inverted>
+                {" "}
+                All Cabins{" "}
+              </Header>
+            </HeaderImage>
+            <Container>
+              <Dropdown
+                placeholder="Filter by type"
+                fluid
+                selection
+                options={this.categoryOptions()}
+                value={category}
+                onChange={this.handleChange}
+              />
+              {category && (
+                <Button
+                  fluid
+                  basic
+                  onClick={() => this.setState({ category: "" })}
+                >
+                  Clear Filters
+                </Button>
+              )}
+              <Divider hidden />
+              <Card.Group itemsPerRow={3}>{this.displayRooms()}</Card.Group>
+            </Container>
           </Grid.Column>
         </Grid.Row>
       </Grid>
-      <Footer/>
-    </div>
-    )
-  }
-  
-  render () {
-    return (
-      <div>
-        <Grid stackable>
-          <Grid.Row>
-            <Grid.Column mobile={4} tablet={8} computer={16}>
-          <React.Fragment>
-          <HeaderImage>
-            <Header as="h1" inverted> All Cabins </Header>
-          </HeaderImage>
-            <Container>
-              <Card.Group itemsPerRow={3}>
-                { this.displayRooms() }
-              </Card.Group>
-            </Container>
-          </React.Fragment>
-          </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </div>
-    )
+    );
   }
 }
 

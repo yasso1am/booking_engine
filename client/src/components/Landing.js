@@ -83,7 +83,7 @@ class Landing extends Component {
                             placeholder='Name'
                             name='name'
                             required
-                            value={name}
+                            value={first_name}
                             onChange={this.handleChange}
                           />
                           <Form.Input
