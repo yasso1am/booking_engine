@@ -64,7 +64,8 @@ end
 
 100.times do 
   user = User.create(
-    name: Faker::Name.name_with_middle,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
     nickname: Faker::WorldOfWarcraft.hero,
     password: "password",
     email: Faker::Internet.email,
@@ -92,5 +93,6 @@ end
   end
 end
 
-
-
+puts "Admin Login Info - Email: #{User.where(role: 'admin').last.email} Password: password"
+puts "Employee Login Info - Email: #{User.where(role: 'employee').last.email} Password: password"
+puts "Client Login Info - Email: #{User.where(role: 'client').last.email} Password: password"
