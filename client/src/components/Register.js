@@ -5,14 +5,14 @@ import { registerUser } from '../actions/auth';
 import { setFlash } from '../actions/flash';
 
 class Register extends Component {
-  state = { name: '', email: '', password: '', passwordConfirmation: '' };
+  state = { firstName: '', lastName: '', email: '', password: '', passwordConfirmation: '' };
 
   handleSubmit = event => {
     event.preventDefault();
-    const { name, email, password, passwordConfirmation } = this.state;
+    const { firstName, lastName, email, password, passwordConfirmation } = this.state;
     const { dispatch, history } = this.props;
     if (password === passwordConfirmation) {
-      dispatch(registerUser(name, email, password, passwordConfirmation, history));
+      dispatch(registerUser(firstName, lastName, email, password, passwordConfirmation, history));
     } else dispatch(setFlash('Passwords do not match!, please try again', 'red'));
   }
 
@@ -25,19 +25,27 @@ class Register extends Component {
   }
 
   render() {
-    const { name, email, password, passwordConfirmation } = this.state;
+    const { firstName, lastName, email, password, passwordConfirmation } = this.state;
 
     return (
       <Segment basic>
         <Header as='h1' textAlign='center'>Register Component</Header>
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
-            <label htmlFor='name'>Name</label>
+            <label htmlFor='firstName'>First Name</label>
             <input
-              id='name'
-              placeholder='Name'
+              id='firstName'
+              placeholder='First Name'
               required
-              value={name}
+              value={firstName}
+              onChange={this.handleChange}
+            />
+            <label htmlFor='lastName'>Last Name</label>
+            <input
+              id='lastName'
+              placeholder='Last Name'
+              required
+              value={lastName}
               onChange={this.handleChange}
             />
           </Form.Field>

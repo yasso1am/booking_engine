@@ -102,12 +102,14 @@ class Cabins extends React.Component {
               <Divider hidden />
               <Card.Group itemsPerRow={3}>{this.displayRooms()}</Card.Group>
             </Container>
+            <Divider hidden />
+            <Footer />
           </Grid.Column>
         </Grid.Row>
       </Grid>
     );
-  }
-}
+  };
+};
 
 const mapStateToProps = state => {
   const { cabins } = state;

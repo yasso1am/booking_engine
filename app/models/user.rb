@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :user_promo_codes, dependent: :destroy
   has_many :promo_codes, through: :user_promo_codes
 
-  validates :email, :name, presence: true 
+  validates :email, :first_name, :last_name, presence: true 
   validates :email, uniqueness: { case_sensitive: true }
 
   def self.employees
