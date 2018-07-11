@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Divider, Container, Grid } from 'semantic-ui-react';
+import { Divider, 
+	Container, 
+	Grid,
+	Image,
+ } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Footer from './Footer';
 
@@ -10,7 +14,7 @@ class AboutUs extends Component {
 				<Grid stackable>
 					<Grid.Row>
 						<Grid.Column mobile={4} computer={16}>
-							<MainHeader></MainHeader>
+							<MainHeader />
 						</Grid.Column>
 					</Grid.Row>
 						<Container>
@@ -77,12 +81,12 @@ class AboutUs extends Component {
 }
 
 const MainHeader = styled.div`
-	background-image: url('https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-0.3.5&s=2041fd6c2a8ac244c054a855f25c5fd6&auto=format&fit=crop&w=1350&q=80');
-	background-repeat: no-repeat;
-	background-position: center top; 
-	background-attachment: fixed
-	height: 450px;
 	display: flex;
+	background-image: url('https://icdn3.themanual.com/image/themanual/cabin-in-the-woods-on-a-lake.jpg');
+	background-repeat: no-repeat;
+	background-position: center; 
+	width: 100%;
+	height: 500px;
 `
 const Paragraph = styled.p`
 	text-align: center;
