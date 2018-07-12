@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Divider, 
+import { 
+	Divider, 
 	Container, 
 	Grid,
-	Image,
  } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Footer from './Footer';

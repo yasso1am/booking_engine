@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
   Header,
+  Grid,
   Form,
-  Image,
   Button,
   Segment,
   Checkbox,
   Container,
-  Grid,
+  Divider,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { setFlash } from '../actions/flash';
@@ -23,7 +23,7 @@ class Landing extends Component {
     const { first_name, last_name, email, emailConfirmation, checkbox } = this.state;
     if (email === emailConfirmation && checkbox === true) {
       this.setState({ first_name: '', last_name: '', email: '', emailConfirmation: '', checkbox: false });
-      this.props.dispatch(addUser({first_name, last_name, email}));
+      this.props.dispatch(addUser({ first_name, last_name, email }));
       this.props.dispatch(setFlash('Thank you, We look foreward to seeing you!', 'green'));
     } else
       this.props.dispatch(setFlash('Emails do not match!, please try again', 'red'));
@@ -65,73 +65,95 @@ class Landing extends Component {
   render() {
     const { first_name, last_name, email, emailConfirmation, day, minute, second, hour } = this.state;
     return (
-      <Background>
-        <Segment basic>
-          <Header as='h1' textAlign='center'>Terra Nova Soon</Header>
-          <Image src='https://specials-images.forbesimg.com/dam/imageserve/521462644/960x0.jpg?fit=scale' alt="YellowStone" height="450px;" centered />
-          <Header textAlign='center' as='h1' > If you want to know more about us, leave us your info</Header>
-          <FormStyle >
-            <Container>
-              <Form onSubmit={ this.handleSubmit }>
-                <Form.Field >
-                  <label htmlFor='first_name'>First Name</label>
-                  <input
-                    placeholder='First Name'
-                    name='first_name'
-                    required
-                    value={ first_name }
-                    onChange={ this.handleChange }
-                  />
-                </Form.Field>
-                <Form.Field >
-                  <label htmlFor='last_name'>Last Name</label>
-                  <input
-                    placeholder='Last Name'
-                    name='last_name'
-                    required
-                    value={ last_name }
-                    onChange={ this.handleChange }
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label htmlFor='email'>Email</label>
-                  <input
-                    placeholder='Email'
-                    name='email'
-                    required
-                    value={ email }
-                    onChange={ this.handleChange }
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label htmlFor='emailConfirmation'>Email Confirmation</label>
-                  <input
-                    placeholder='Email Confirmation'
-                    name="emailConfirmation"
-                    type='email'
-                    required
-                    value={ emailConfirmation }
-                    onChange={ this.handleChange }
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <Checkbox label='Check to recieve updates'
-                    onChange={ this.handleCheckbox } />
-                </Form.Field>
-                <Segment basic textAlign='center'>
-                  <Button type='submit'>Submit</Button>
-                </Segment>
-                <StyledClock id="demo">{ day + "d " + hour + "h "
-                  + minute + "m " + second + "s " } </StyledClock>
-              </Form>
-            </Container>
-          </FormStyle>
-          <Header textAlign="center" as='h1' >Until We Open</Header>
-        </Segment>
-      </Background>
+      <div>
+        <Grid.Column mobile={4} tablet={8} computer={16}>
+          <MainHeader>
+            <Greating> Terra Nova Coming Soon </Greating>
+          </MainHeader>
+          <Segment basic>
+            <Header textAlign='center' as='h2' > If you want to know more about us, leave us your info</Header>
+            <FormStyle >
+              <Container>
+                <Form onSubmit={this.handleSubmit}>
+                  <Form.Field >
+                    <label htmlFor='first_name'>First Name</label>
+                    <input
+                      placeholder='First Name'
+                      name='first_name'
+                      required
+                      value={first_name}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Field>
+                  <Form.Field >
+                    <label htmlFor='last_name'>Last Name</label>
+                    <input
+                      placeholder='Last Name'
+                      name='last_name'
+                      required
+                      value={last_name}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Field>
+                  <Form.Field>
+                    <label htmlFor='email'>Email</label>
+                    <input
+                      placeholder='Email'
+                      name='email'
+                      required
+                      value={email}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Field>
+                  <Form.Field>
+                    <label htmlFor='emailConfirmation'>Email Confirmation</label>
+                    <input
+                      placeholder='Email Confirmation'
+                      name="emailConfirmation"
+                      type='email'
+                      required
+                      value={emailConfirmation}
+                      onChange={this.handleChange}
+                    />
+                  </Form.Field>
+                  <Form.Field>
+                    <Checkbox label='Check to recieve updates'
+                      onChange={this.handleCheckbox} />
+                  </Form.Field>
+                  <Segment basic textAlign='center'>
+                    <Button type='submit'>Submit</Button>
+                  </Segment>
+                  <StyledClock id="demo">{day + "d " + hour + "h "
+                    + minute + "m " + second + "s "} </StyledClock>
+                </Form>
+              </Container>
+            </FormStyle>
+            <Header textAlign="center" as='h1' >Until We Open</Header>
+          </Segment>
+          <Footer />
+        </Grid.Column>
+
+      </div>
     );
   }
 }
+
+const MainHeader = styled.div`
+  display: flex;
+	background-image: url('https://specials-images.forbesimg.com/dam/imageserve/521462644/960x0.jpg');
+	background-repeat: no-repeat;
+  background-position: center; 
+  background-size: cover;
+	width: 100%;
+  height: 500px;
+`
+const Greating = styled.div`
+  justify-content: center;
+  text-align: center;
+  font-size: 45px;
+  margin-top: 10px;
+  width: 100%;
+`
 
 const StyledClock = styled.div`
   text-align: center;
@@ -139,9 +161,7 @@ const StyledClock = styled.div`
   margin-top: 0px;
   color: black;
 `
-const Background = styled.div`
-  background: slategray;
-`
+
 const FormStyle = styled.div`
   width: 655px;
   margin: auto;
