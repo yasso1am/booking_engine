@@ -4,12 +4,12 @@ import {
 	Button,
 	Container,
 } from 'semantic-ui-react';
-import { getPromoCodes } from '../reducers/promocodes';
+import { getPromoCodes, deletePromoCode } from '../reducers/promocodes';
 import { connect } from 'react-redux';
 import AdminPromoCodeForm from './AdminPromoCodeForm';
 
 class PromoCodesIndex extends React.Component {
-	state = { showForm: false }
+	state = { showForm: false, code: {} };
 
 	toggleForm = () => {
 		return this.setState({ showForm: !this.state.showForm })
@@ -17,6 +17,15 @@ class PromoCodesIndex extends React.Component {
 
 	componentDidMount() {
 		this.props.dispatch(getPromoCodes())
+	};
+
+	editing = (code) => {
+		this.setState({ code: code });
+		this.toggleForm();
+	};
+
+	handleDelete = (id) => {
+		this.props.dispatch(deletePromoCode(id))
 	};
 
 	listCodes = () => {
@@ -32,6 +41,13 @@ class PromoCodesIndex extends React.Component {
 					<Table.Cell>{code.value}</Table.Cell>
 					<Table.Cell>{code.max_useable}</Table.Cell>
 					<Table.Cell>{code.max_by_user}</Table.Cell>
+					<Table.Cell>
+						<Button.Group>
+    					<Button color="blue" onClick={() => this.editing(code)}>Edit</Button>
+    					<Button.Or />
+    					<Button color="red" onClick={() => this.handleDelete(code.id)}>Delete</Button>
+  					</Button.Group>
+					</Table.Cell>
 				</Table.Row>
 				)
 			}
@@ -39,12 +55,13 @@ class PromoCodesIndex extends React.Component {
 	};
 
 	render() {
-		const { showForm } = this.state
+		const { showForm, code } = this.state;
 		return(
 			<Container>
 			{ showForm &&
 				<div>
-					<AdminPromoCodeForm toggleForm={this.toggleForm}/>
+					<AdminPromoCodeForm toggleForm={this.toggleForm} {...code} />
+					<Button onClick={this.toggleForm} color="red">Cancel</Button>
 				</div>
 			}
 			{ !showForm &&
@@ -61,6 +78,7 @@ class PromoCodesIndex extends React.Component {
 		        	<Table.HeaderCell>Value</Table.HeaderCell>
 		        	<Table.HeaderCell>Max Usable</Table.HeaderCell>
 		        	<Table.HeaderCell>Max By User</Table.HeaderCell>
+		        	<Table.HeaderCell>Admin Actions</Table.HeaderCell>
 		      	</Table.Row>
 	    		</Table.Header>
 	    		<Table.Body>
@@ -72,7 +90,7 @@ class PromoCodesIndex extends React.Component {
 			</Container>
 		)
 	}
-};
+}
 
 const mapStateToProps = (state) => {
 	const { promocodes, user } = state;

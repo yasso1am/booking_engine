@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addPromoCode } from '../reducers/promocodes';
+import { addPromoCode, updatePromoCode } from '../reducers/promocodes';
 import { 
 	Form,
 	Button,
@@ -29,19 +29,24 @@ class AdminPromoCodeForm extends Component {
 
 	state = {...this.initialState};
 
+	componentDidMount() {
+    if (this.props.id)
+      this.setState({ ...this.props })
+  };
+
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value })
-  }
+  };
 
   handleSubmit = (e) => {
   	e.preventDefault();
-  	const { toggleForm } = this.props;
+  	const { toggleForm, dispatch } = this.props;
   	const promo_code = this.state;
-  	const { dispatch } = this.props;
-  	dispatch(addPromoCode(promo_code));
+  	const option = this.props.id ? updatePromoCode : addPromoCode
+  	dispatch(option(promo_code));
   	this.setState({...this.initialState});
   	toggleForm();
-  }
+  };
 
 	render () {
 		const { code, description, start_date, end_date, max_useable, max_by_user, kind, value } = this.state;
@@ -68,8 +73,8 @@ class AdminPromoCodeForm extends Component {
 	    		<Button type="submit" color="green">Submit</Button>
 				</Form>
 			</Container>
-		)
-	}
-}
+		);
+	};
+};
 
 export default connect()(AdminPromoCodeForm);
