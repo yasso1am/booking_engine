@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get 'employees', to: 'users#employees'
     get 'all_reservations', to: 'reservations#all_reservations'
 
-    resources :contacts, only: [:create]
+    resources :contacts, only: [:create, :index]
   end
 
   #Do not place any routes below this one

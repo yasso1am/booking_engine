@@ -8,6 +8,7 @@ import {
 import AboutUs from './AboutUs';
 import Home from './Home';
 import PromoCodesIndex from './PromoCodesIndex';
+import Statistics from './Statistics';
 
 class AdminDashboard extends React.Component {
 	state = { activeItem: '', component: '' };
@@ -23,6 +24,8 @@ class AdminDashboard extends React.Component {
 				return <Home />
 			case 'Promo Codes':
 				return <PromoCodesIndex />
+			case 'Statistics':
+				return <Statistics />
 			default:
 				null
 		};

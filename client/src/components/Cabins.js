@@ -58,10 +58,10 @@ class Cabins extends React.Component {
         <Image centered bordered src={defaultImage} />
         <Card.Content textAlign="center">
           <Link to={`/${cabin.size}`}>
-            <Card.Header>
+           <Card.Header>
               {" "}
               {cabin.size.charAt(0).toUpperCase() + cabin.size.substr(1)}{" "}
-            </Card.Header>
+            </Card.Header> 
           </Link>
           <Card.Meta>${cabin.base_price}/night</Card.Meta>
           <Card.Description>

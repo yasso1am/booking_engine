@@ -1,7 +1,7 @@
 class Api::ContactsController < ApplicationController
 
     def index
-      render json: contact.all 
+      render json: Contact.all 
     end
     
     def show
