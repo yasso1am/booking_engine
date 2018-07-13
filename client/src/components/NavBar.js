@@ -32,9 +32,15 @@ class NavBar extends Component {
   };
 
   render() {
+    const { user } = this.props;
     return (
       <Spacer>
         <StyledMenu fixed="top" pointing secondary>
+          { user.role === 'admin' && 
+            <Link to="/admin_dashboard">
+              <Menu.Item name="Dashboard" />
+            </Link>
+          }
           <Link to="/">
             <Menu.Item name="home" />
           </Link>

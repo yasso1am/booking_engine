@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 import {
   Divider,
   Dropdown,
@@ -11,12 +12,22 @@ import {
   Icon,
   Grid,
   Button,
+  Loader,
 } from "semantic-ui-react";
 import styled from "styled-components";
 import Footer from "./Footer";
+import InfiniteScroll from 'react-infinite-scroller'
 
 class Cabins extends React.Component {
-  state = { category: "" };
+  state = { category: "", page: 0, total_pages: 0, cabins: [] };
+  
+  componentDidMount() {
+    axios.get('/api/cabins')
+      .then( res => {
+        this.setState({ cabins: res.data.cabins, total_pages: res.data.total_pages });
+        this.props.dispatch({ type: 'HEADERS', headers: res.headers });
+      });
+  };
 
   handleChange = (e, data) => {
     this.setState({ category: data.value });
@@ -32,8 +43,7 @@ class Cabins extends React.Component {
   };
 
   displayRooms = () => {
-    const { category } = this.state;
-    const { cabins } = this.props;
+    const { category, cabins } = this.state;
     let visible = cabins;
     if (category) {
       if (category === "family" || "single")
@@ -69,8 +79,19 @@ class Cabins extends React.Component {
     ));
   };
 
+  loadMore = () => {
+    const page = this.state.page + 1
+    axios.get( `/api/cabins?page=${page}`)
+    .then( ({data, headers}) => {
+      this.setState(state => {
+        return{ cabins: [...state.cabins, ...data.cabins], page: state.page + 1}
+      })
+      this.props.dispatch({ type: 'HEADERS', headers})
+    })
+  };
+
   render() {
-    const { category } = this.state;
+    const { category, page, total_pages } = this.state;
     return (
       <Grid stackable>
         <Grid.Row>
@@ -90,7 +111,7 @@ class Cabins extends React.Component {
                 value={category}
                 onChange={this.handleChange}
               />
-              {category && (
+              { category && (
                 <Button
                   fluid
                   basic
@@ -99,8 +120,17 @@ class Cabins extends React.Component {
                   Clear Filters
                 </Button>
               )}
-              <Divider hidden />
-              <Card.Group itemsPerRow={3}>{this.displayRooms()}</Card.Group>
+              <Divider hidden />      
+              <InfiniteScroll
+                pageStart={page}
+                loadMore={this.loadMore}
+                hasMore={ page < total_pages }
+                loader={<Loader />}
+                >       
+                <Card.Group itemsPerRow={2}>
+                  {this.displayRooms()}
+                </Card.Group> 
+              </InfiniteScroll>  
             </Container>
             <Divider hidden />
             <Footer />
@@ -111,16 +141,9 @@ class Cabins extends React.Component {
   };
 };
 
-const mapStateToProps = state => {
-  const { cabins } = state;
-  return {
-    cabins
-  };
-};
-
 const HeaderImage = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("https://upload.wikimedia.org/wikipedia/commons/5/53/Post_and_Beam_Barn_Kitchen.jpg");
+  url("https://upload.wikimedia.org/wikipedia/commons/5/53/Post_and_Beam_Barn_Kitchen.jpg");
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -135,4 +158,4 @@ const HeaderImage = styled.div`
 const defaultImage =
   "https://upload.wikimedia.org/wikipedia/commons/b/be/Sydnor_Log_Cabin.png";
 
-export default connect(mapStateToProps)(Cabins);
+export default connect()(Cabins);

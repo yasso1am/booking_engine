@@ -8,7 +8,6 @@ class Flash extends Component {
   componentDidUpdate(prevProps) {
     const { location: prevLocation, flash: prevFlash } = prevProps;
     const { location, flash, dispatch } = this.props;
-    
     const prevMessage = prevFlash.message;
     const prevUrl = prevLocation.pathname;
     const currentMessage = flash.message;

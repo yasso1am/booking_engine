@@ -11,7 +11,7 @@ import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import { Switch, Route } from 'react-router-dom';
-import FetchCabins from './FetchCabins';
+import Cabins from './Cabins';
 import Landing from './Landing';
 import Gallery1 from './Gallery1';
 import AdminPromoCodeForm from './AdminPromoCodeForm';
@@ -32,7 +32,7 @@ class App extends Component {
             <Route exact path='/' component={Landing} />
             <Route exact path='/calendar' component={Calendar} />
             <Route exact path='/about' component={AboutUs} />
-            <Route exact path='/cabins' component={FetchCabins} />
+            <Route exact path='/cabins' component={Cabins} />
             <Route exact path='/home' component={Home} />
             <Route exact path='/landing' component={Home} />
             <Route exact path='/gallery' component={Gallery1} />

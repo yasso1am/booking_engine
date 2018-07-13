@@ -2,8 +2,9 @@ class Api::CabinsController < ApplicationController
     before_action :set_cabin, only: [:show, :update, :destroy]
 
     def index
-        cabin = Cabin.all
-        render json: cabin 
+        cabins = Cabin.page(@page)
+        total_pages = cabins.total_pages
+        render json: { cabins: cabins, total_pages: total_pages }
     end
 
     def show
@@ -41,4 +42,7 @@ class Api::CabinsController < ApplicationController
         params.require(:cabin).permit(:size, :building, :status, :smoking_room, :ada_accessible, :base_price)
     end
 
+    def set_page
+      @page = params[:page] || 1
+    end
 end
