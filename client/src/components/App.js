@@ -30,11 +30,10 @@ class App extends Component {
         <FetchUser>
           <Switch>
             <Route exact path='/' component={Landing} />
+            <Route exact path='/home' component={Home} />
             <Route exact path='/calendar' component={Calendar} />
             <Route exact path='/about' component={AboutUs} />
             <Route exact path='/cabins' component={Cabins} />
-            <Route exact path='/home' component={Home} />
-            <Route exact path='/landing' component={Home} />
             <Route exact path='/gallery' component={Gallery1} />
             <Route exact path='/employees' component={Employees} />
             <ProtectedRoute exact path='/reservation' component={ReservationForm} />

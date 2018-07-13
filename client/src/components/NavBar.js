@@ -41,7 +41,7 @@ class NavBar extends Component {
               <Menu.Item name="Dashboard" />
             </Link>
           }
-          <Link to="/">
+          <Link to="/home">
             <Menu.Item name="home" />
           </Link>
           <Link to="/about">
