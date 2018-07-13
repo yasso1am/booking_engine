@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :user_promo_codes
     resources :users, only: [:index, :show, :update, :destroy]
     get 'employees', to: 'users#employees'
+    get 'all_reservations', to: 'reservations#all_reservations'
 
     resources :contacts, only: [:create]
   end

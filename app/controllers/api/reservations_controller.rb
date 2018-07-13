@@ -9,6 +9,10 @@ class Api::ReservationsController < ApplicationController
     render json: @reservation
   end
 
+  def all_reservations
+    render json: Reservation.all
+  end
+
   def create
     reservation = current_user.reservations.new(reservation_params)
     if reservation.save

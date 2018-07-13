@@ -19,6 +19,7 @@ import AdminDashboard from './AdminDashboard';
 import Family from './Family';
 import Employees from './Employees';
 import ReservationForm from './ReservationForm';
+import Calendar from './Calendar'
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
         <FetchUser>
           <Switch>
             <Route exact path='/' component={Landing} />
+            <Route exact path='/calendar' component={Calendar} />
             <Route exact path='/about' component={AboutUs} />
             <Route exact path='/cabins' component={FetchCabins} />
             <Route exact path='/home' component={Home} />
