@@ -1,30 +1,113 @@
 import React, { Component } from "react";
-import { Header, Form, Checkbox, Button, Segment } from "semantic-ui-react";
+import {
+  Header,
+  Form,
+  Checkbox,
+  Button,
+  Segment,
+  TextArea
+} from "semantic-ui-react";
 import { connect } from "react-redux";
+import { setFlash } from "../actions/flash";
+import { makeReservation } from "../reducers/reservations";
+
+const roomOptions = [
+  { key: "single", text: "Single - sleeps up to four", value: "single" },
+  { key: "family", text: "Family - sleeps up to eight", value: "family" },
+];
 
 class ReservationForm extends Component {
   state = {
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
     startDate: "",
     endDate: "",
     specialRequest: "",
-    smokingRoom: "",
-    adaAccessible: "",
-    petFriendlyRoom: ""
+    smokingRoom: false,
+    size: "",
+    adaAccessible: false,
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    zipcode: "",
+    country: "",
+    addressLine1: "",
+    addressLine2: "",
+    city: "",
+    state: "",
+    petFriendly: false,
   };
 
-  componentDidmount() {
-    const user = this.props;
+  componentDidMount() {
+    const { user } = this.props;
     this.setState({
-      firstName: user.first_name
+      firstName: user.first_name,
+      lastName: user.last_name,
+      email: user.email,
     });
   }
 
   handleSubmit = event => {
     event.preventDefault();
+    const { dispatch } = this.props;
+    const {
+      startDate,
+      endDate,
+      specialRequest,
+      smokingRoom,
+      size,
+      adaAccessible,
+      firstName,
+      lastName,
+      email,
+      phone,
+      zipcode,
+      country,
+      addressLine1,
+      addressLine2,
+      city,
+      state,
+      petFriendly,
+    } = this.state;
+    const reservation = {
+      start_date: startDate,
+      end_date: endDate,
+      special_requests: specialRequest,
+      smoking_room: smokingRoom,
+      size: size,
+      ada_accessible: adaAccessible,
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      phone_number: phone,
+      zip_code: zipcode,
+      country: country,
+      address_line1: addressLine1,
+      address_line2: addressLine2,
+      city: city,
+      state: state,
+      pet_friendly: petFriendly,
+    };
+    dispatch(setFlash("Thanks, we're looking forward to having you!", "green"));
+    dispatch(makeReservation(reservation));
+    this.setState({
+      startDate: "",
+      endDate: "",
+      specialRequest: "",
+      smokingRoom: false,
+      size: "",
+      adaAccessible: false,
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      zipcode: "",
+      country: "",
+      addressLine1: "",
+      addressLine2: "",
+      city: "",
+      state: "",
+      petFriendly: false,
+    });
   };
 
   handleChange = e => {
@@ -32,131 +115,216 @@ class ReservationForm extends Component {
     this.setState({ [id]: value });
   };
 
-  handleCheck = e => {
-    const { id, value } = e.target;
-    this.setState({ [id]: value });
+  handleRoomChoice = (e, data) => {
+    this.setState({ size: data.value });
   };
+
   render() {
     const {
-      phone,
-      email,
-      firstName,
-      lastName,
       startDate,
       endDate,
       specialRequest,
       smokingRoom,
+      size,
       adaAccessible,
-      petFriendlyRoom
+      firstName,
+      lastName,
+      email,
+      phone,
+      zipcode,
+      country,
+      addressLine1,
+      addressLine2,
+      city,
+      state,
+      petFriendly,
     } = this.state;
+
     return (
       <Segment basic>
         <Header as="h1" textAlign="center">
           Reservation Form Component
         </Header>
         <Form onSubmit={this.handleSubmit}>
+          <Form.Group widths="equal">
+            <Form.Field>
+              <label htmlFor="firstName">First Name</label>
+              <input
+                id="firstName"
+                placeholder="First name"
+                autoComplete="given-name"
+                required
+                value={firstName}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor="lastName">Last Name</label>
+              <input
+                id="lastName"
+                placeholder="Last name"
+                autoComplete="family-name"
+                required
+                value={lastName}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+          </Form.Group>
+          <Form.Group widths="equal">
+            <Form.Field>
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                placeholder="email@example.com"
+                autoComplete="email"
+                required
+                value={email}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor="phone">Phone</label>
+              <input
+                id="phone"
+                placeholder="xxx-xxx-xxxx"
+                autoComplete="tel-national"
+                required
+                value={phone}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+          </Form.Group>
+          <Form.Group widths="equal">
           <Form.Field>
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="addressLine1">Address Line 1</label>
             <input
-              id="firstName"
-              placeholder="First name"
-              required
-              value={firstName}
+              id="addressLine1"
+              placeholder="Address Line 1"
+              value={addressLine1}
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
-            <label htmlFor="LastName">Last Name</label>
+            <label htmlFor="addressLine2">Address Line 2</label>
             <input
-              id="lastName"
-              placeholder="Last name"
-              required
-              value={lastName}
+              id="addressLine2"
+              placeholder="Address Line 2"
+              value={addressLine2}
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="city">City</label>
             <input
-              id="phone"
-              placeholder="xxx-xxx-xxxx"
+              id="city"
+              placeholder="City"
               required
-              value={phone}
+              value={city}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          </Form.Group>
+          <Form.Group widths="equal">
+          <Form.Field>
+            <label htmlFor="state">State</label>
+            <input
+              id="state"
+              placeholder="State"
+              required
+              value={state}
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="zipcode">Zipcode</label>
             <input
-              id="email"
-              placeholder="email@example.com"
+              id="zipcode"
+              placeholder="Zipcode"
               required
-              value={email}
+              value={zipcode}
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
-            <label htmlFor="startDate">Arrival Date</label>
+            <label htmlFor="country">Country</label>
             <input
-              id="startDate"
-              placeholder="Arrival"
-              required
-              value={startDate}
+              id="country"
+              placeholder="Country"
+              value={country}
               onChange={this.handleChange}
             />
           </Form.Field>
-          <Form.Field>
-            <label htmlFor="endDate">Departure Date</label>
-            <input
-              id="endDate"
-              placeholder="Departure"
-              required
-              value={endDate}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
+          </Form.Group>
+          <Form.Group widths="equal">
+            <Form.Field>
+              <label htmlFor="startDate">Arrival Date</label>
+              <input
+                id="startDate"
+                type="date"
+                placeholder="xx / xx / xxxx"
+                required
+                value={startDate}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor="endDate">Departure Date</label>
+              <input
+                id="endDate"
+                type="date"
+                placeholder="xx / xx / xxxx"
+                required
+                value={endDate}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+          </Form.Group>
           <Form.Field>
             <label htmlFor="specialRequests">Special Requests</label>
-            <input
+            <TextArea
+              autoHeight
+              autoComplete="nope"
               id="specialRequest"
-              placeholder="Special Requests"
               value={specialRequest}
               onChange={this.handleChange}
             />
           </Form.Field>
-          <Form.Field>
-            <label htmlFor="size">Room Size</label>
-            <select class="ui dropdown">
-              <option value="">Please Select a room size</option>
-              <option value="1">Single cabin - sleeps up to four.</option>
-              <option value="0">Family Cabin - sleeps up to eight.</option>
-            </select>
-          </Form.Field>
-          <Form.Field>
-            <Checkbox
-              label="I would like a smoking room."
-              id="smoking"
-              value={smokingRoom}
-              onChange={this.handleCheck}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Checkbox
-              label="I would like an ADA accessible room."
-              id="ada"
-              value={adaAccessible}
-              onChange={this.handleCheck}
-            />
-          </Form.Field>
+          <Form.Dropdown
+            required
+            defaultValue={size}
+            selection
+            label="Size"
+            options={roomOptions}
+            placeholder="Please choose a room size"
+            onChange={this.handleRoomChoice}
+          />
+          <Form.Group>
+            <Form.Field>
+              <Checkbox
+                label="I would like a smoking room."
+                id="smokingRoom"
+                onChange={() => this.setState({ smokingRoom: !smokingRoom })}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Checkbox
+                label="I would like an ADA accessible room."
+                id="adaAccessible"
+                onChange={() =>
+                  this.setState({ adaAccessible: !adaAccessible })
+                }
+              />
+            </Form.Field>
+          </Form.Group>
 
           <Form.Field>
             <Checkbox
               label="I would like a pet friendly room."
               id="pet"
-              value={petFriendlyRoom}
-              onChange={this.handleCheck}
+              onChange={() => this.setState({ pet_friendly: !petFriendly })}
             />
           </Form.Field>
+
           <Segment basic textAlign="center">
             <Button type="submit">Submit</Button>
           </Segment>
@@ -167,6 +335,7 @@ class ReservationForm extends Component {
 }
 
 const mapStateToProps = state => {
-  const user = this.state;
+  return { user: state.user };
 };
+
 export default connect(mapStateToProps)(ReservationForm);

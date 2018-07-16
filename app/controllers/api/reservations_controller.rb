@@ -18,7 +18,7 @@ class Api::ReservationsController < ApplicationController
     if reservation.save
       render json: reservation
     else
-      render json: {errors: reservation.errors.full_messages}, status: 422
+      render_error(reservation)
     end
   end
 
@@ -41,7 +41,27 @@ class Api::ReservationsController < ApplicationController
     end
 
     def reservation_params
-      params.require(:reservation).permit(:special_requests, :smoking_room, :size, :ada_accessible, :cabin_id, :user_id)
+      params.require(:reservation).permit(
+                              :start_date,
+                              :end_date,
+                              :special_requests,
+                              :smoking_room,
+                              :size,
+                              :ada_accessible,
+                              :cabin_id,
+                              :user_id,
+                              :first_name,
+                              :last_name,
+                              :email,
+                              :phone_number,
+                              :zip_code,
+                              :country,
+                              :address_line1,
+                              :address_line2,
+                              :city,
+                              :state,
+                              :pet_friendly
+      )
     end
 
 
