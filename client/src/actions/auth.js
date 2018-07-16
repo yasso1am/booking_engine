@@ -62,11 +62,8 @@ export const handleLogin = (email, password, history) => {
         history.push('/');
       })
       .catch(res => {
-        let errors = res.response.data.errors ? res.response.data.errors : { full_messages: ['Something went wrong'] }
-        if (Array.isArray(errors))
-          errors = { full_messages: errors }
         const messages =
-          errors.map(message =>
+          res.response.data.errors.map(message =>
             <div>{message}</div>);
         const { headers } = res;
         dispatch(setHeaders(headers));

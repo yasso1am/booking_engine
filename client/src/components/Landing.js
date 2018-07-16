@@ -150,20 +150,21 @@ const MainHeader = styled.div`
 const Greating = styled.div`
   justify-content: center;
   text-align: center;
-  font-size: 45px;
+  font-size: 30px;
+  line-height: 1.8;
   margin-top: 10px;
   width: 100%;
 `
 
 const StyledClock = styled.div`
   text-align: center;
-  font-size: 60px;
+  font-size: 30px;
   margin-top: 0px;
   color: black;
 `
 
 const FormStyle = styled.div`
-  width: 655px;
+  width: 100%;
   margin: auto;
 `
 
