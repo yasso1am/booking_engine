@@ -7,7 +7,6 @@ import {
   Segment,
   Checkbox,
   Container,
-  Divider,
 } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { setFlash } from '../actions/flash';

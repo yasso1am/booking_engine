@@ -7,7 +7,6 @@ import {
 	Container,
 	Header,
 	Divider,
-	Select,
 } from 'semantic-ui-react';
 
 const options = [

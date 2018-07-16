@@ -32,7 +32,7 @@ class PromoCodesIndex extends React.Component {
 		const { promocodes } = this.props;
 		return promocodes.map( code => {
 			return(
-				<Table.Row>
+				<Table.Row key={code.id}>
 					<Table.Cell>{code.code}</Table.Cell>
 					<Table.Cell>{code.description}</Table.Cell>
 					<Table.Cell>{code.start_date}</Table.Cell>

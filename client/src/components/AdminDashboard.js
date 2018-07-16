@@ -1,9 +1,7 @@
 import React from 'react';
 import { 
 	Menu,
-	Segment,
 	Grid, 
-	Container,
 } from 'semantic-ui-react';
 import AboutUs from './AboutUs';
 import Home from './Home';
@@ -27,8 +25,8 @@ class AdminDashboard extends React.Component {
 			case 'Statistics':
 				return <Statistics />
 			default:
-				null
-		};
+				return null
+		}
 	};
 
 	render() {

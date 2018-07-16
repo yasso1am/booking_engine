@@ -59,5 +59,5 @@ export default (state = [], action) => {
 			 return state.filter( p => p.id !== action.id )
 		default:
 			return state;
-	};
+	}
 };
