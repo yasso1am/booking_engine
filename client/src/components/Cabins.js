@@ -7,7 +7,6 @@ import {
   Dropdown,
   Container,
   Header,
-  Card,
   Image,
   Icon,
   Grid,
@@ -20,10 +19,10 @@ import InfiniteScroll from 'react-infinite-scroller'
 
 class Cabins extends React.Component {
   state = { category: "", page: 0, total_pages: 0, cabins: [] };
-  
+
   componentDidMount() {
     axios.get('/api/cabins')
-      .then( res => {
+      .then(res => {
         this.setState({ cabins: res.data.cabins, total_pages: res.data.total_pages });
         this.props.dispatch({ type: 'HEADERS', headers: res.headers });
       });
@@ -54,40 +53,40 @@ class Cabins extends React.Component {
         visible = cabins.filter(c => c.ada_accessible === true);
     };
     return visible.map((cabin, i) => (
-      <Card key={i}>
-        <Image centered bordered src={defaultImage} />
-        <Card.Content textAlign="center">
-          <Link to={`/${cabin.size}`}>
-           <Card.Header>
+      <container>
+        <DisplayCard>
+          <CabinImage src="https://upload.wikimedia.org/wikipedia/commons/b/be/Sydnor_Log_Cabin.png" />
+          <CabinLink to={`/${cabin.size}`}>
+            <HeaderName>
               {" "}
               {cabin.size.charAt(0).toUpperCase() + cabin.size.substr(1)}{" "}
-            </Card.Header> 
-          </Link>
-          <Card.Meta>${cabin.base_price}/night</Card.Meta>
-          <Card.Description>
-            {" "}
-            A beautiful cabin - awaiting your stay{" "}
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <Card.Meta>
+            </HeaderName>
+          </CabinLink>
+          <CardIcon>
             {cabin.ada_accessible && <Icon name="handicap" size="big" />}
             {cabin.smoking_room && <Icon name="gripfire" size="big" />}
-          </Card.Meta>
-        </Card.Content>
-      </Card>
+          </CardIcon>
+          <CardContent>
+            <CabinPrice>${cabin.base_price}/night</CabinPrice>
+            <CardDescription>
+              {" "}
+              A beautiful cabin - awaiting your stay{" "}
+            </CardDescription>
+          </CardContent>
+        </DisplayCard>
+      </container>
     ));
   };
 
   loadMore = () => {
     const page = this.state.page + 1
-    axios.get( `/api/cabins?page=${page}`)
-    .then( ({data, headers}) => {
-      this.setState(state => {
-        return{ cabins: [...state.cabins, ...data.cabins], page: state.page + 1}
+    axios.get(`/api/cabins?page=${page}`)
+      .then(({ data, headers }) => {
+        this.setState(state => {
+          return { cabins: [...state.cabins, ...data.cabins], page: state.page + 1 }
+        })
+        this.props.dispatch({ type: 'HEADERS', headers })
       })
-      this.props.dispatch({ type: 'HEADERS', headers})
-    })
   };
 
   render() {
@@ -111,7 +110,7 @@ class Cabins extends React.Component {
                 value={category}
                 onChange={this.handleChange}
               />
-              { category && (
+              {category && (
                 <Button
                   fluid
                   basic
@@ -120,17 +119,17 @@ class Cabins extends React.Component {
                   Clear Filters
                 </Button>
               )}
-              <Divider hidden />      
+              <CardGroup itemsPerRow={1}>
+                {this.displayRooms()}
+              </CardGroup>
+              <Divider hidden />
               <InfiniteScroll
                 pageStart={page}
                 loadMore={this.loadMore}
-                hasMore={ page < total_pages }
+                hasMore={page < total_pages}
                 loader={<Loader />}
-                >       
-                <Card.Group itemsPerRow={2}>
-                  {this.displayRooms()}
-                </Card.Group> 
-              </InfiniteScroll>  
+              >
+              </InfiniteScroll>
             </Container>
             <Divider hidden />
             <Footer />
@@ -155,7 +154,58 @@ const HeaderImage = styled.div`
   margin-bottom: 30px;
   color: white;
 `;
-const defaultImage =
-  "https://upload.wikimedia.org/wikipedia/commons/b/be/Sydnor_Log_Cabin.png";
 
+const CabinLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  width: 20vw;
+  color: slategray;
+`;
+
+const DisplayCard = styled.div`
+  display: flex;
+  border-radius: 6px;
+  border: solid slategray 6px;
+  height: 200px;  
+`;
+
+const HeaderName = styled.h2`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+`;
+
+const CabinImage = styled(Image)`
+  paddign: 10px;
+  height: 190px;
+  width: 30%;
+`;
+
+const CardContent = styled.h4`
+  color: red;
+`;
+
+const CardIcon = styled.div`
+  width: 20%;
+  padding-top: 20px;
+  color: blue;
+`;
+
+const CabinPrice = styled.div`
+  justify-content: center;
+  color: darkgreen;
+  font-size: 25px;
+`;
+
+const CardDescription = styled.div`
+  color: slategray;
+  justify-content: center;
+  font-size: 15px;
+`;
+
+const CardGroup = styled.div`
+  width: 100%;
+  radius: 60%;
+  `;
 export default connect()(Cabins);
