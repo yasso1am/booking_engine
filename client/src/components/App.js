@@ -96,6 +96,7 @@ class App extends Component {
                   <Route exact path='/landing' component={Home} />
                   <Route exact path='/gallery' component={Gallery1} />
                   <Route exact path='/employees' component={Employees} />
+                  <Route exact path='/calendar' component={Calendar} />
                   <ProtectedRoute exact path='/admin_promo_code_add' component={AdminPromoCodeForm} />
                   <ProtectedRoute exact path='/admin_dashboard' component={AdminDashboard} />
                   <Route exact path='/single' component={Single} />
