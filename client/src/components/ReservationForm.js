@@ -5,21 +5,25 @@ import {
   Checkbox,
   Button,
   Segment,
-  TextArea
+  TextArea,
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { setFlash } from "../actions/flash";
 import { makeReservation } from "../reducers/reservations";
+import DateSelector from "./DateSelector";
+import styled from "styled-components";
+import moment from 'moment';
 
 const roomOptions = [
   { key: "single", text: "Single - sleeps up to four", value: "single" },
-  { key: "family", text: "Family - sleeps up to eight", value: "family" },
+  { key: "family", text: "Family - sleeps up to eight", value: "family" }
 ];
 
 class ReservationForm extends Component {
   state = {
-    startDate: "",
-    endDate: "",
+    startDate: moment(),
+    endDate: moment(),
+    dateClicked: 0,
     specialRequest: "",
     smokingRoom: false,
     size: "",
@@ -34,7 +38,7 @@ class ReservationForm extends Component {
     addressLine2: "",
     city: "",
     state: "",
-    petFriendly: false,
+    petFriendly: false
   };
 
   componentDidMount() {
@@ -42,7 +46,7 @@ class ReservationForm extends Component {
     this.setState({
       firstName: user.first_name,
       lastName: user.last_name,
-      email: user.email,
+      email: user.email
     });
   }
 
@@ -66,7 +70,7 @@ class ReservationForm extends Component {
       addressLine2,
       city,
       state,
-      petFriendly,
+      petFriendly
     } = this.state;
     const reservation = {
       start_date: startDate,
@@ -85,13 +89,15 @@ class ReservationForm extends Component {
       address_line2: addressLine2,
       city: city,
       state: state,
-      pet_friendly: petFriendly,
+      pet_friendly: petFriendly
     };
     dispatch(setFlash("Thanks, we're looking forward to having you!", "green"));
     dispatch(makeReservation(reservation));
     this.setState({
-      startDate: "",
-      endDate: "",
+      startDate: moment(),
+      endDate: moment(),
+      realStartDate: "",
+      realEndDate: "",
       specialRequest: "",
       smokingRoom: false,
       size: "",
@@ -106,8 +112,16 @@ class ReservationForm extends Component {
       addressLine2: "",
       city: "",
       state: "",
-      petFriendly: false,
+      petFriendly: false
     });
+  };
+
+  handleStart = date => {
+    this.setState({ startDate: date });
+  };
+
+  handleEnd = date => {
+    this.setState({ endDate: date });
   };
 
   handleChange = e => {
@@ -137,7 +151,7 @@ class ReservationForm extends Component {
       addressLine2,
       city,
       state,
-      petFriendly,
+      petFriendly
     } = this.state;
 
     return (
@@ -195,90 +209,81 @@ class ReservationForm extends Component {
             </Form.Field>
           </Form.Group>
           <Form.Group widths="equal">
-          <Form.Field>
-            <label htmlFor="addressLine1">Address Line 1</label>
-            <input
-              id="addressLine1"
-              placeholder="Address Line 1"
-              value={addressLine1}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor="addressLine2">Address Line 2</label>
-            <input
-              id="addressLine2"
-              placeholder="Address Line 2"
-              value={addressLine2}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor="city">City</label>
-            <input
-              id="city"
-              placeholder="City"
-              required
-              value={city}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          </Form.Group>
-          <Form.Group widths="equal">
-          <Form.Field>
-            <label htmlFor="state">State</label>
-            <input
-              id="state"
-              placeholder="State"
-              required
-              value={state}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor="zipcode">Zipcode</label>
-            <input
-              id="zipcode"
-              placeholder="Zipcode"
-              required
-              value={zipcode}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor="country">Country</label>
-            <input
-              id="country"
-              placeholder="Country"
-              value={country}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          </Form.Group>
-          <Form.Group widths="equal">
             <Form.Field>
-              <label htmlFor="startDate">Arrival Date</label>
+              <label htmlFor="addressLine1">Address Line 1</label>
               <input
-                id="startDate"
-                type="date"
-                placeholder="xx / xx / xxxx"
-                required
-                value={startDate}
+                id="addressLine1"
+                autoComplete="address-line1"
+                placeholder="Address Line 1"
+                value={addressLine1}
                 onChange={this.handleChange}
               />
             </Form.Field>
             <Form.Field>
-              <label htmlFor="endDate">Departure Date</label>
+              <label htmlFor="addressLine2">Address Line 2</label>
               <input
-                id="endDate"
-                type="date"
-                placeholder="xx / xx / xxxx"
+                id="addressLine2"
+                autoComplete="address-line2"
+                placeholder="Address Line 2"
+                value={addressLine2}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor="city">City</label>
+              <input
+                id="city"
+                autoComplete="address-level2"
+                placeholder="City"
                 required
-                value={endDate}
+                value={city}
                 onChange={this.handleChange}
               />
             </Form.Field>
           </Form.Group>
+          <Form.Group widths="equal">
+            <Form.Field>
+              <label htmlFor="state">State</label>
+              <input
+                id="state"
+                autoComplete="address-level1"
+                placeholder="State"
+                required
+                value={state}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor="zipcode">Zipcode</label>
+              <input
+                id="zipcode"
+                placeholder="Zipcode"
+                autoComplete="postal-code"
+                required
+                value={zipcode}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor="country">Country</label>
+              <input
+                id="country"
+                autoComplete="country"
+                placeholder="Country"
+                value={country}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+          </Form.Group>
+          <Header as="h3" textAlign="center"> Chose your Dates </Header>
+          <MyContainer>
+            <DateSelector
+              handleStart={this.handleStart}
+              handleEnd={this.handleEnd}
+              startDate={startDate}
+              endDate={endDate}
+            />
+          </MyContainer>
           <Form.Field>
             <label htmlFor="specialRequests">Special Requests</label>
             <TextArea
@@ -316,7 +321,6 @@ class ReservationForm extends Component {
               />
             </Form.Field>
           </Form.Group>
-
           <Form.Field>
             <Checkbox
               label="I would like a pet friendly room."
@@ -324,7 +328,6 @@ class ReservationForm extends Component {
               onChange={() => this.setState({ pet_friendly: !petFriendly })}
             />
           </Form.Field>
-
           <Segment basic textAlign="center">
             <Button type="submit">Submit</Button>
           </Segment>
@@ -333,6 +336,12 @@ class ReservationForm extends Component {
     );
   }
 }
+
+const MyContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
 
 const mapStateToProps = state => {
   return { user: state.user };

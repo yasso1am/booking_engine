@@ -9,6 +9,7 @@
     "npm": "^6.1.0",
     "react": "^16.4.1",
     "react-big-calendar": "^0.19.2",
+    "react-datepicker": "^1.5.0",
     "react-dom": "^16.4.1",
     "react-grid-gallery": "^0.5.1",
     "react-image-gallery": "^0.8.9",

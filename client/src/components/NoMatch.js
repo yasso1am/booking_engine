@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {  Container, Grid, Button  } from 'semantic-ui-react';
+import {  Grid, } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Footer from './Footer';
 
@@ -16,7 +16,7 @@ import Footer from './Footer';
                   <ErrorMessage>404</ErrorMessage>
                   <ErrorMessageBottom>Page Not Found</ErrorMessageBottom>
                   <ErrorButton>
-                    < Link style = {{color: 'white'}} to='/'>Back to Home</Link>
+                    <Link style = {{color: 'white'}} to='/'>Back to Home</Link>
                   </ErrorButton>
                  
               </Grid.Column>
