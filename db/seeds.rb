@@ -1,3 +1,13 @@
+def set_time
+  year = ["2017", "2018", "2019", ].sample
+  month = [1..12].sample.uniq.sample.to_s
+  day = [1..28].sample.uniq.sample.to_s
+  @start = "#{year}-#{month}-#{day}"
+  d = Date.parse(@start)
+  r = [1..7].sample.uniq.sample
+  @end = d + r
+end
+
 @x = 1
 @i = 0
 @codes = [
@@ -47,13 +57,12 @@
 end
 
 10.times do
-  @time1 = Time.at(rand * Time.now.to_i)
-  @time2 = Time.at(rand * Time.now.to_i)
+  set_time
   @promo_code = PromoCode.create(
     code: @codes[@i],
     description: @desc[@i],
-    start_date: (@time1 > @time2 ? @time2 : @time1),
-    end_date: (@time1 > @time2 ? @time1 : @time2),
+    start_date: @start,
+    end_date: @end,
     max_useable: 20,
     max_by_user: 2,
     kind: ['dollar_amount', 'percentage', 'total'].sample,
@@ -72,11 +81,10 @@ end
     role: ["client", "employee", "admin"].sample
   )
   1.times do
-    @time1 = Time.at(rand * Time.now.to_i)
-    @time2 = Time.at(rand * Time.now.to_i)
+    set_time
     reservation = Reservation.create(
-      start_date: (@time1 > @time2 ? @time2 : @time1),
-      end_date: (@time1 > @time2 ? @time1 : @time2),
+      start_date: @start,
+      end_date: @end,
       special_requests: @requests.sample,
       smoking_room: [true, false].sample,
       size: ["single", "family"].sample,
