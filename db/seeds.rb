@@ -10,6 +10,8 @@ end
 
 @x = 1
 @i = 0
+@j = 1
+@k = 1
 @codes = [
   'SUMMER2018',
   'WOOOCABINS',
@@ -71,36 +73,83 @@ end
   @i += 1
 end
 
+User.create(
+  first_name: "admin",
+  last_name: "admin",
+  nickname: Faker::WorldOfWarcraft.hero,
+  password: "password",
+  email: "admin@test.com",
+  role: "admin"
+)
+User.create(
+  first_name: "client",
+  last_name: "client",
+  nickname: Faker::WorldOfWarcraft.hero,
+  password: "password",
+  email: "client@test.com",
+  role: "client"
+)
+User.create(
+  first_name: "employee",
+  last_name: "employee",
+  nickname: Faker::WorldOfWarcraft.hero,
+  password: "password",
+  email: "employee@test.com",
+  role: "employee"
+)
+
 100.times do 
-  user = User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    nickname: Faker::WorldOfWarcraft.hero,
-    password: "password",
-    email: Faker::Internet.email,
-    role: ["client", "employee", "admin"].sample
-  )
-  1.times do
-    set_time
-    reservation = Reservation.create(
-      start_date: @start,
-      end_date: @end,
-      special_requests: @requests.sample,
-      smoking_room: [true, false].sample,
-      size: ["single", "family"].sample,
-      ada_accessible: [true, false].sample,
-      user_id: user.id,
+  if (@j % 10 === 0)
+    User.create(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      nickname: Faker::WorldOfWarcraft.hero,
+      password: "password",
+      email: "employee#{@k}@test.com",
+      role: "employee"
     )
-    1.times do 
-      UserPromoCode.create(
-        user_id: user.id,
-        reservation_id: reservation.id,
-        promo_code_id: [PromoCode.first.id..PromoCode.last.id].sample.uniq.sample
-      )  
-    end
+    @k += 1
+    @j += 1
+  else
+    User.create(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      nickname: Faker::WorldOfWarcraft.hero,
+      password: "password",
+      email: "user#{@j}@test.com",
+      role: "client"
+    )
+    @j += 1
   end
+    user = User.create(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      nickname: Faker::WorldOfWarcraft.hero,
+      password: "password",
+      email: "user",
+      role: ["client", "employee", "admin"].sample
+    )
+    1.times do
+      set_time
+      reservation = Reservation.create(
+        start_date: @start,
+        end_date: @end,
+        special_requests: @requests.sample,
+        smoking_room: [true, false].sample,
+        size: ["single", "family"].sample,
+        ada_accessible: [true, false].sample,
+        user_id: user.id,
+      )
+      1.times do 
+        UserPromoCode.create(
+          user_id: user.id,
+          reservation_id: reservation.id,
+          promo_code_id: [PromoCode.first.id..PromoCode.last.id].sample.uniq.sample
+        )  
+      end
+    end
 end
 
-puts "Admin Login Info - Email: #{User.where(role: 'admin').last.email} Password: password"
-puts "Employee Login Info - Email: #{User.where(role: 'employee').last.email} Password: password"
-puts "Client Login Info - Email: #{User.where(role: 'client').last.email} Password: password"
+puts "Admin Login Info - Email: admin@test.com Password: password"
+puts "Employee Login Info - Email: employee@test.com Password: password"
+puts "Client Login Info - Email: client@test.com Password: password"
