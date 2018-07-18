@@ -7,6 +7,7 @@ import AboutUs from './AboutUs';
 import Home from './Home';
 import PromoCodesIndex from './PromoCodesIndex';
 import Statistics from './Statistics';
+import Employees from './Employees';
 
 class AdminDashboard extends React.Component {
 	state = { activeItem: '', component: '' };
@@ -24,6 +25,8 @@ class AdminDashboard extends React.Component {
 				return <PromoCodesIndex />
 			case 'Statistics':
 				return <Statistics />
+			case 'Employees':
+				return <Employees />
 			default:
 				return null
 		}
