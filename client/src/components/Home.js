@@ -9,7 +9,7 @@ class Home extends Component {
       <div>
         <Grid stackable>
           <Grid.Row>
-            <Grid.Column mobile={4} tablet={8} computer={16}>
+            <Grid.Column mobile={4} computer={16}>
                 <MainHeader></MainHeader>
             <Headerr>TERRA NOVA CABINS</Headerr>
             </Grid.Column>

@@ -10,7 +10,7 @@ import Single from './Single';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import Cabins from './Cabins';
 import Landing from './Landing';
 import Gallery1 from './Gallery1';
@@ -20,32 +20,93 @@ import Family from './Family';
 import Employees from './Employees';
 import ReservationForm from './ReservationForm';
 import Calendar from './Calendar'
+import { Sidebar, Menu, Segment, Button, Responsive } from 'semantic-ui-react';
 
 class App extends Component {
+  state = { visible: false };
+
+  handleButtonClick = () => this.setState({ visible: !this.state.visible })
+
+  handleSidebarHide = () => this.setState({ visible: false })
+
   render() {
     return (
       <div>
-        <NavBar/>
-        <Flash />
-        <FetchUser>
-          <Switch>
-            <Route exact path='/' component={Landing} />
-            <Route exact path='/home' component={Home} />
-            <Route exact path='/calendar' component={Calendar} />
-            <Route exact path='/about' component={AboutUs} />
-            <Route exact path='/cabins' component={Cabins} />
-            <Route exact path='/gallery' component={Gallery1} />
-            <Route exact path='/employees' component={Employees} />
-            <ProtectedRoute exact path='/reservation' component={ReservationForm} />
-            <ProtectedRoute exact path='/admin_promo_code_add' component={AdminPromoCodeForm} />
-            <ProtectedRoute exact path='/admin_dashboard' component={AdminDashboard} />
-            <Route exact path='/single' component={Single}/>
-            <Route exact path='/family' component={Family}/>
-            <AuthRoute exact path='/login' component={Login} />
-            <AuthRoute exact path='/register' component={Register} />
-            <Route component={NoMatch} />
-          </Switch>
-        </FetchUser>
+        <Responsive minWidth={768}>
+          <NavBar />
+        </Responsive>
+        <Responsive maxWidth={768}>
+          <Button onClick={this.handleButtonClick}>Menu</Button>
+        </Responsive>
+          <Sidebar.Pushable as={Segment}>
+            <Sidebar
+              as={Menu}
+              animation='overlay'
+              icon='labeled'
+              inverted
+              onHide={this.handleSidebarHide}
+              vertical
+              visible={this.state.visible}
+              width='thin'
+            >
+              <Link to="/">
+                <Menu.Item as='a'>
+                  Home
+              </Menu.Item>
+              </Link>
+              <Link to="/about">
+                <Menu.Item as='a'>
+                  About Us
+              </Menu.Item>
+              </Link>
+              <Link to="/cabins">
+                <Menu.Item as='a'>
+                  Rooms
+              </Menu.Item>
+              </Link>
+              <Link to="/reservation">
+                <Menu.Item as='a'>
+                  Reservations
+              </Menu.Item>
+              </Link>
+              <Link to="/feature">
+                <Menu.Item as='a'>
+                  Features
+              </Menu.Item>
+              </Link>
+              <Link to="/blog">
+                <Menu.Item as='a'>
+                  Blog
+              </Menu.Item>
+              </Link>
+              <Link to="/contact">
+                <Menu.Item as='a'>
+                  Contact
+              </Menu.Item>
+              </Link>
+            </Sidebar>
+            <Flash />
+            <Sidebar.Pusher>
+              <FetchUser>
+                <Switch>
+                  <Route exact path='/' component={Landing} />
+                  <Route exact path='/about' component={AboutUs} />
+                  <Route exact path='/cabins' component={Cabins} />
+                  <Route exact path='/home' component={Home} />
+                  <Route exact path='/landing' component={Home} />
+                  <Route exact path='/gallery' component={Gallery1} />
+                  <Route exact path='/employees' component={Employees} />
+                  <ProtectedRoute exact path='/admin_promo_code_add' component={AdminPromoCodeForm} />
+                  <ProtectedRoute exact path='/admin_dashboard' component={AdminDashboard} />
+                  <Route exact path='/single' component={Single} />
+                  <Route exact path='/family' component={Family} />
+                  <AuthRoute exact path='/login' component={Login} />
+                  <AuthRoute exact path='/register' component={Register} />
+                  <Route component={NoMatch} />
+                </Switch>
+              </FetchUser>
+            </Sidebar.Pusher>
+          </Sidebar.Pushable>
       </div>
     );
   }
