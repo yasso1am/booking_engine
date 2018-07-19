@@ -12,6 +12,7 @@ end
 @i = 0
 @j = 1
 @k = 1
+@z = 1
 @codes = [
   'SUMMER2018',
   'WOOOCABINS',
@@ -126,9 +127,10 @@ User.create(
       last_name: Faker::Name.last_name,
       nickname: Faker::WorldOfWarcraft.hero,
       password: "password",
-      email: "user",
+      email: "clientperson#{@z}@test.com",
       role: ["client", "employee", "admin"].sample
     )
+    @z += 1
     1.times do
       set_time
       reservation = Reservation.create(
