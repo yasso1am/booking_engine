@@ -53,7 +53,7 @@ end
     status: ['Clean', 'Dirty', 'Occupied', 'Available'].sample,
     smoking_room: [true, false].sample,
     ada_accessible: [true, false].sample,
-    base_price: (cabinSize == 'Single' ? 300 : 450)
+    base_price: (cabinSize == 'single' ? 300 : 450)
   ) 
   @x += 1
 end
