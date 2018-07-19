@@ -10,5 +10,4 @@ export const MainButton = styled.div`
   border-radius: 3px;
 `
 
-export const SecondaryButton = styled(MainButton)`
-`
+export const SecondaryButton = styled(MainButton)

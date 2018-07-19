@@ -8,6 +8,7 @@ import {
   Grid,
   Menu,
 } from "semantic-ui-react";
+import ContactUsForm from './ContactUsForm';
 
 class NavBar extends Component {
   rightNavs = () => {
@@ -59,11 +60,17 @@ class NavBar extends Component {
           <Link to="/feature">
             <Menu.Item name="Features" />
           </Link>
-          <Link to="/blog">
-            <Menu.Item name="Blog" />
+          <Link to="/contactusform">
+            <Menu.Item name="Contact Us" />
           </Link>
-          <Link to="/contact">
-            <Menu.Item name="Contact" />
+          <Link to="/ReservationForm">
+            <Menu.Item name='Reservation' />
+          </Link>
+          <Link to="/feature">
+            <Menu.Item name='Features' />
+          </Link>
+          <Link to='/about'>
+            <Menu.Item name='About Us' />
           </Link>
           {this.rightNavs()}
         </StyledMenu>

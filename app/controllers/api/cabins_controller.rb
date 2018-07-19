@@ -25,7 +25,7 @@ class Api::CabinsController < ApplicationController
             render json: @cabin
         else
             render json: {errors: @cabin.errors.full_messages}, status: 422
-         end
+        end
     end
 
     def destroy
