@@ -57,8 +57,8 @@ class NavBar extends Component {
           <Link to="/reservation">
             <Menu.Item name="Reservation" />
           </Link>
-          <Link to="/feature">
-            <Menu.Item name="Features" />
+          <Link to="/ammenities">
+            <Menu.Item name="Ammenities" />
           </Link>
           <Link to="/contactusform">
             <Menu.Item name="Contact Us" />
