@@ -74,6 +74,20 @@ end
   @i += 1
 end
 
+1.times do 
+  set_time
+  PromoCode.create(
+  code: "WORK",
+  description: "I am a lovely code that works",
+  start_date: @start,
+  end_date: @end,
+  max_useable: 1000,
+  max_by_user: 300,
+  kind: "dollar_amount",
+  value: 20.0
+)
+end
+
 User.create(
   first_name: "admin",
   last_name: "admin",

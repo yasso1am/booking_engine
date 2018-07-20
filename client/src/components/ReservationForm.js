@@ -10,6 +10,7 @@ import {
 import { connect } from "react-redux";
 import { setFlash } from "../actions/flash";
 import { makeReservation } from "../reducers/reservations";
+import PromoCodeAdd from "./PromoCodeAdd";
 import DateSelector from "./DateSelector";
 import styled from "styled-components";
 import moment from 'moment';
@@ -38,7 +39,8 @@ class ReservationForm extends Component {
     addressLine2: "",
     city: "",
     state: "",
-    petFriendly: false
+    petFriendly: false,
+    code: "",
   };
 
   componentDidMount() {
@@ -46,7 +48,7 @@ class ReservationForm extends Component {
     this.setState({
       firstName: user.first_name,
       lastName: user.last_name,
-      email: user.email
+      email: user.email,
     });
   }
 
@@ -70,7 +72,7 @@ class ReservationForm extends Component {
       addressLine2,
       city,
       state,
-      petFriendly
+      petFriendly,
     } = this.state;
     const reservation = {
       start_date: startDate,
@@ -89,7 +91,7 @@ class ReservationForm extends Component {
       address_line2: addressLine2,
       city: city,
       state: state,
-      pet_friendly: petFriendly
+      pet_friendly: petFriendly,
     };
     dispatch(setFlash("Thanks, we're looking forward to having you!", "green"));
     dispatch(makeReservation(reservation));
@@ -112,7 +114,7 @@ class ReservationForm extends Component {
       addressLine2: "",
       city: "",
       state: "",
-      petFriendly: false
+      petFriendly: false,
     });
   };
 
@@ -133,6 +135,27 @@ class ReservationForm extends Component {
     this.setState({ size: data.value });
   };
 
+  shareCode = (code) => {
+    this.setState({ code: code });
+  };
+
+  displayCode = () => {
+    const { code } = this.state;
+    if (code) {
+      return (
+        <div>
+        <Header as="h3"> 
+          {code.code} 
+        </Header>
+        <span>
+          {code.description}
+        </span>        
+        <p>You will receive {code.value} off your reservation  </p>
+        </div>
+      );
+    };
+  };
+
   render() {
     const {
       startDate,
@@ -151,7 +174,7 @@ class ReservationForm extends Component {
       addressLine2,
       city,
       state,
-      petFriendly
+      petFriendly,
     } = this.state;
 
     return (
@@ -332,6 +355,8 @@ class ReservationForm extends Component {
             <Button type="submit">Submit</Button>
           </Segment>
         </Form>
+          {this.displayCode()}
+          <PromoCodeAdd shareCode={this.shareCode} />
       </Segment>
     );
   }

@@ -95,7 +95,7 @@ class App extends Component {
                   <Route exact path='/about' component={AboutUs} />
                   <Route exact path='/cabins' component={Cabins} />
                   <Route exact path='/home' component={Home} />
-                  <Route exact path='/reservation' component={ReservationForm} />
+                  <ProtectedRoute exact path='/reservation' component={ReservationForm} />
                   <Route exact path='/gallery' component={Gallery1} />
                   <Route exact path='/calendar' component={Calendar} />
                   <ProtectedRoute exact path='/admin_dashboard' component={AdminDashboard} />

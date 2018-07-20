@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { setHeaders } from "../actions/headers"
 import axios from 'axios';
 import {
   Divider,
@@ -24,7 +25,7 @@ class Cabins extends React.Component {
     axios.get('/api/cabins')
       .then(res => {
         this.setState({ cabins: res.data.cabins, total_pages: res.data.total_pages });
-        this.props.dispatch({ type: 'HEADERS', headers: res.headers });
+        this.props.dispatch(setHeaders(res.headers))
       });
   };
 

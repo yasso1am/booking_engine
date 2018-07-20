@@ -15,7 +15,7 @@ class UserPromoCode < ApplicationRecord
     elsif times_used_total > promo_code.max_useable
       return {valid: false, message: "This code has expired"}
     else
-      return {valid: true}
+      return {valid: true, message: "Valid promo code" }
     end
   end
 end

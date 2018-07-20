@@ -10,17 +10,18 @@ class Api::UserPromoCodesController < ApplicationController
   end
 
   def create 
-    if PromoCode.where(code: params[:code]) 
-      promo_code_id = PromoCode.where(code: params[:code])[0].id
-      result = UserPromoCode.check_codes(promo_code_id, user_id)
-      if result.valid == false
-        render json: {errors: result.message}, status: 422
-      else
-        user_promo_code = UserPromoCode.create({user_id: current_user.id, promo_code_id: promo_code_id})
-          render json: user_promo_code
+    code = PromoCode.find_by(code: params[:code]) 
+    if code
+      user = current_user.id
+      result = UserPromoCode.check_codes(code.id, user)
+    if result[:valid] == false
+        render json: {errors: result[:message]}, status: 422
+    else
+      user_promo_code = UserPromoCode.create({user_id: current_user.id, promo_code_id: promo_code_id})
+        render json: {promo_code: x[0], message: result[:message]}
       end
     else
-      render json: {errors: promo_code.errors.full_messages.join(',')}, status: 422
+      render json: {errors: "That code doesn't exist"}, status: 422
     end
   end
   
