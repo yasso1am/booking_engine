@@ -28,14 +28,16 @@ class Landing extends Component {
       this.props.dispatch(setFlash('Emails do not match!, please try again', 'red'));
   }
 
+  };
+
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
-  }
+  };
 
   handleCheckbox = (e) => {
     this.setState({ checkbox: !this.state.checkbox });
-  }
+  };
 
   countDown = () => {
     let countDownDate = new Date("Oct 5, 2018 15:37:25").getTime();
@@ -52,13 +54,11 @@ class Landing extends Component {
       let seconds = Math.floor((distance % (1000 * 60)) / 1000);
       this.setState({ day: days, hour: hours, second: seconds, minute: minutes });
     }, 1000);
-
-
-  }
+  };
 
   componentDidMount() {
     this.countDown()
-  }
+  };
 
   render() {
     const { first_name, last_name, email, emailConfirmation, day, minute, second, hour } = this.state;
@@ -66,10 +66,15 @@ class Landing extends Component {
       <div>
         <Grid.Column mobile={4} tablet={8} computer={16}>
           <MainHeader>
-            <Greating> Terra Nova Coming Soon </Greating>
+            <Greating>
+               Terra Nova Cabins Welcomes You In:
+              <StyledClock id="demo">
+                {day + "d " + hour + "h " + minute + "m " + second + "s "}
+              </StyledClock>
+            </Greating>
           </MainHeader>
           <Segment basic>
-            <Header textAlign='center' as='h2' > If you want to know more about us, leave us your info</Header>
+            <Header textAlign='center' as='h2'>Sign Up Below For Exclusive Offers</Header>
             <FormStyle >
               <Container>
                 <Form onSubmit={this.handleSubmit}>
@@ -121,16 +126,12 @@ class Landing extends Component {
                   <Segment basic textAlign='center'>
                     <Button type='submit'>Submit</Button>
                   </Segment>
-                  <StyledClock id="demo">{day + "d " + hour + "h "
-                    + minute + "m " + second + "s "} </StyledClock>
                 </Form>
               </Container>
             </FormStyle>
-            <Header textAlign="center" as='h1' >Until We Open</Header>
           </Segment>
           <Footer />
         </Grid.Column>
-
       </div>
     );
   }
@@ -138,31 +139,34 @@ class Landing extends Component {
 
 const MainHeader = styled.div`
   display: flex;
-	background-image: url('https://specials-images.forbesimg.com/dam/imageserve/521462644/960x0.jpg');
+	background-image: url('https://images.unsplash.com/photo-1518869675078-080f6acfe69d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2387e5c339843592cab940d81e4b6087');
 	background-repeat: no-repeat;
-  background-position: center; 
+  background-position: center bottom; 
   background-size: cover;
 	width: 100%;
   height: 500px;
+  justify-content: center;
 `
 const Greating = styled.div`
+  flex: 1;
   justify-content: center;
   text-align: center;
-  font-size: 30px;
+  font-size: 60px;
   line-height: 1.8;
   margin-top: 10px;
   width: 100%;
+  align-self: center;
+  color: #fff;
 `
 
 const StyledClock = styled.div`
   text-align: center;
-  font-size: 30px;
-  margin-top: 0px;
-  color: black;
+  font-size: 55px;
+  color: white;
 `
 
 const FormStyle = styled.div`
-  width: 100%;
+  width: 75%;
   margin: auto;
 `
 
