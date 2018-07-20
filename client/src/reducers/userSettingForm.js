@@ -6,10 +6,9 @@ const DELETE_FORM = 'DELETE_FORM';
 export const editForm = (id) => {
   return (dispatch) => {
     axios.put('/api/users/', {id} )
-     .then( res => dispatch({ type: 'EDIT_FORM', app: res.data }) )
+     .then( res => dispatch({ type: 'EDIT_FORM', app: res.data, headers: res.headers }) )
   }
 }
-
 
 export default ( state = [], action ) => {
   switch(action.type) {

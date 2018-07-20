@@ -12,9 +12,7 @@ export const getContacts = () => {
     return (dispatch) => {
         axios.get('/api/contacts')
         .then(res => {
-            const { headers } = res;
-            dispatch(setHeaders(headers));
-            dispatch({ type: CONTACTS, contacts: res.data })
+            dispatch({ type: CONTACTS, contacts: res.data, headers: res.headers })
         })
     }
 }
@@ -23,9 +21,7 @@ export const addContact = (contact) => {
     return (dispatch) => {
         axios.post('/api/contacts', { contact })
         .then ( res => {
-            const { headers } = res
-            dispatch(setHeaders(headers))
-            dispatch({ type: ADD_CONTACT, contact: res.data })
+            dispatch({ type: ADD_CONTACT, contact: res.data, headers: res.headers })
             dispatch(setFlash(' Thank you ', 'green'))
         })
         .catch( (err) => dispatch(setFlash('Failed to submit your question, please try again', 'red')) )
@@ -36,9 +32,7 @@ export const editContact = (contact) => {
     return (dispatch) => {
         axios.put('/api/contacts', { contact })
         .then ( res => {
-            const { headers } = res
-            dispatch(setHeaders(headers))
-            dispatch({ type: EDIT_CONTACT, contact: res.data })
+            dispatch({ type: EDIT_CONTACT, contact: res.data, headers: res.headers })
         })
     }
 }
