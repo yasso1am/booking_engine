@@ -25,8 +25,8 @@ const Wrapper = styled.div`
 	background-color: #504B3A;
 `
 const Paragraph = styled.div`
+	font-family: 'Josefin Slab';
 	font-size: 12px;
 	color: grey;
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 `
 export default Footer;

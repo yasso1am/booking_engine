@@ -46,7 +46,7 @@ const ErrorMessage = styled.h1`
   text-align: center;
   padding-top: 20px;
   font-size: 200px;
-  font-family: 'Bree Serif', serif;
+  font-family: 'Josefin Slab';
   color: #F3F5F4;
 `
 
@@ -57,7 +57,7 @@ const ErrorMessageBottom = styled.h1`
   text-align: center;
   padding-top: 20px;
   font-size: 80px;
-  font-family: 'Bree Serif', serif;
+  font-family: 'Josefin Slab';
   color: #F3F5F4;
 `
 

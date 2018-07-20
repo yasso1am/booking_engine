@@ -178,10 +178,8 @@ class ReservationForm extends Component {
     } = this.state;
 
     return (
-      <Segment basic>
-        <Header as="h1" textAlign="center">
-          Reservation Form Component
-        </Header>
+      <Segment basic style={styles.font}>
+      <Header as='h1' textAlign='center'>Make a Reservation</Header>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
             <Form.Field>
@@ -366,7 +364,14 @@ const MyContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-family: 'Josefin Slab';
 `;
+
+const styles = {
+  font: {
+    fontFamily: 'Josefin Slab',
+  },
+}
 
 const mapStateToProps = state => {
   return { user: state.user };

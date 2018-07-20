@@ -55,6 +55,7 @@ const MainHeader = styled.div`
   text-align: center;
   display: flex;
   overflow: scroll;
+  font-family: 'Josefin Slab';
 ` 
 
 const Preview = styled.div`
@@ -83,16 +84,18 @@ const Headerr = styled.h1`
   padding-top: 20px;
   font-size: 60px;
   color: white;
+  font-family: 'Josefin Slab';
 `
 
 const Paragraph = styled.h1`
+  font-family: 'Josefin Slab';
   text-align: center;
-  font-family: "Didot 24 A","Didot 24 B"", "Book Antiqua", Palatino, serif;
+  font-weight: 700;
 `
 
 const MainParagraph = styled.p`
   text-align: center;
-  font-family: "Didot 24 A","Didot 24 B"", Palatino, serif;
+  font-family: 'Josefin Slab';
   padding-bottom: 80px;
   font-size: 25px;
 `

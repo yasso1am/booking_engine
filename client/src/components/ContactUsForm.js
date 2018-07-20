@@ -141,8 +141,7 @@ const MainHeader = styled.div`
     text-align: center;
     display: flex;
     overflow: scroll;
+    font-family: 'Josefin Slab';
     `;
-
-
 
 export default connect()(ContactUsForm);
