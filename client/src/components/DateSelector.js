@@ -16,11 +16,11 @@ class DateSelector extends React.Component {
 
   render() {
     return (
-      <Grid>
+      <Grid stackable>
         <Grid.Row>
           <MyContainer>
             <Grid.Column>
-              <Header textAlign="center"> Start Date </Header>
+              <SubHeader textAlign="center"> Start Date </SubHeader>
               <DatePicker
                 inline
                 fixedHeight
@@ -35,7 +35,7 @@ class DateSelector extends React.Component {
               />
             </Grid.Column>
             <Grid.Column>
-              <Header textAlign="center"> End Date </Header>
+              <SubHeader textAlign="center"> End Date </SubHeader>
               <DatePicker
                 inline
                 fixedHeight
@@ -53,6 +53,19 @@ class DateSelector extends React.Component {
     );
   }
 }
+
+const HeaderText = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
+  padding-top: 40px;
+`
+
+const SubHeader = HeaderText.extend`
+  font-size: 2em;
+  padding: 20px;
+`
+
 
 const MyContainer = styled.div`
   display: flex;

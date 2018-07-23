@@ -15,7 +15,6 @@ class PromoCodeAdd extends React.Component {
       .then(res => {
         dispatch(setHeaders(res.headers));
         alert("Promo code accepted")  
-        debugger
         this.props.shareCode(res.data.promo_code)
         this.setState({ code: "" });
       }).catch( res => {
@@ -27,9 +26,8 @@ class PromoCodeAdd extends React.Component {
       })
   };
 
-  handleChange = event => {
-    const name = event.target.id;
-    const value = event.target.value;
+  handleChange = (e) => {
+    const { name, value } = e.target
     this.setState({ [name]: value });
   };
 

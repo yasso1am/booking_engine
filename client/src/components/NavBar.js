@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { handleLogout } from "../actions/auth";
 import styled from "styled-components";
 import {
-  Button,
   Grid,
   Menu,
 } from "semantic-ui-react";
@@ -71,7 +70,7 @@ class NavBar extends Component {
 }
 
 const Spacer = styled.div`
-  padding-top: 40px;
+  padding-top: 35px;
 `;
 
 const StyledMenu = styled(Menu)`

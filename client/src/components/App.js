@@ -20,7 +20,6 @@ import Family from './Family';
 import Employees from './Employees';
 import Calendar from './Calendar'
 import { Sidebar, Menu, Segment, Button, Responsive } from 'semantic-ui-react';
-import PromoCodeAdd from './PromoCodeAdd';
 import ContactUsForm from './ContactUsForm';
 import ReservationForm from './ReservationForm';
 import Ammenities from './Ammenities';
