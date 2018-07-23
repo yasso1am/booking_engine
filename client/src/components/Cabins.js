@@ -54,7 +54,7 @@ class Cabins extends React.Component {
         visible = cabins.filter(c => c.ada_accessible === true);
     };
     return visible.map((cabin, i) => (
-      <container>
+      <container key={i}>
         <DisplayCard>
           <CabinImage src="https://upload.wikimedia.org/wikipedia/commons/b/be/Sydnor_Log_Cabin.png" />
           <CabinLink to={`/${cabin.size}`}>
