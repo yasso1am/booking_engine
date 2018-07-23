@@ -28,7 +28,7 @@ class Landing extends Component {
       this.props.dispatch(setFlash('Emails do not match!, please try again', 'red'));
   }
 
-  };
+ 
 
   handleChange = (e) => {
     const { name, value } = e.target;
