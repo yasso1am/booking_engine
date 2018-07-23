@@ -63,22 +63,22 @@ class Employees extends React.Component {
       let filtered_employees = employees.filter( e => 
          e.first_name.includes(search_term) || e.last_name.includes(search_term)
       );
-      return (
-        filtered_employees.map( (emp, i) => 
-          <Grid.Row key={i} columns={4} textAlign="center">
-            <Grid.Column>
-              { emp.first_name }
-            </Grid.Column>
-            <Grid.Column>
-              { emp.last_name }
-            </Grid.Column>
-            <Grid.Column>
-              { emp.email }
-            </Grid.Column>
-            <Grid.Column>
-              { emp.role }
-            </Grid.Column>
-         </Grid.Row>
+    return (
+      filtered_employees.map( (emp, i) => 
+        <Grid.Row key={i} columns={4} textAlign="center">
+          <Grid.Column>
+            { emp.first_name }
+          </Grid.Column>
+          <Grid.Column>
+            { emp.last_name }
+          </Grid.Column>
+          <Grid.Column>
+            { emp.email }
+          </Grid.Column>
+          <Grid.Column>
+            { emp.role }
+          </Grid.Column>
+        </Grid.Row>
         )
       )
     }
@@ -116,12 +116,12 @@ class Employees extends React.Component {
               <Grid.Column>
                 Role
               </Grid.Column>
-            </Grid.Row>
-            { (search_term.length > 0) ?
-              this.searchEmployee()
-              :
-              this.listEmployees()
-            };
+            </Grid.Row>          
+              { (search_term.length > 0) ?
+                this.searchEmployee()
+                :
+                this.listEmployees()
+              };
           </Grid>
         </InfiniteScroll>
       </Container>

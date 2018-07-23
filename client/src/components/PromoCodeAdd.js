@@ -20,9 +20,12 @@ class PromoCodeAdd extends React.Component {
       }).catch( res => {
         dispatch(setHeaders(res.response.headers));
         const message = res.response.data.errors
-        if (message);
+        if (message) {
           return alert(message);
+        }
+        else {
         return alert("Something went wrong, code not accepted");
+        }
       })
   };
 

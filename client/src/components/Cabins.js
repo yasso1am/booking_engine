@@ -53,9 +53,9 @@ class Cabins extends React.Component {
       if (category === "ada_accessible")
         visible = cabins.filter(c => c.ada_accessible === true);
     };
-    return visible.map((cabin, i) => (
-      <container key={i}>
-        <DisplayCard>
+    return visible.map((cabin, i) => {
+      return (
+        <DisplayCard key={i}>
           <CabinImage src="https://upload.wikimedia.org/wikipedia/commons/b/be/Sydnor_Log_Cabin.png" />
           <CabinLink to={`/${cabin.size}`}>
             <HeaderName>
@@ -75,8 +75,8 @@ class Cabins extends React.Component {
             </CardDescription>
           </CardContent>
         </DisplayCard>
-      </container>
-    ));
+       ) 
+    })
   };
 
   loadMore = () => {
@@ -111,7 +111,7 @@ class Cabins extends React.Component {
                 value={category}
                 onChange={this.handleChange}
               />
-              {category && (
+              { category && 
                 <Button
                   fluid
                   basic
@@ -119,10 +119,7 @@ class Cabins extends React.Component {
                 >
                   Clear Filters
                 </Button>
-              )}
-              <CardGroup itemsPerRow={1}>
-                {this.displayRooms()}
-              </CardGroup>
+              }
               <Divider hidden />
               <InfiniteScroll
                 pageStart={page}
@@ -130,6 +127,9 @@ class Cabins extends React.Component {
                 hasMore={page < total_pages}
                 loader={<Loader />}
               >
+                <CardGroup itemsPerRow={1}>
+                  {this.displayRooms()}
+                </CardGroup>
               </InfiniteScroll>
             </Container>
             <Divider hidden />

@@ -11,7 +11,7 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
     @font-face {
         font-family: 'Josefin Slab';
-        src: url('https://fonts.googleapis.com/css?family=Josefin+Slab');
+        src: url('https://fonts.googleapis.com/css?family=Josefin+Slab') format('embedded-opentype');
     }
 
     html, body, div, h1, h2, h3, p, h4, button {

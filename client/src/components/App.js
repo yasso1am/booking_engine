@@ -52,37 +52,37 @@ class App extends Component {
             width='thin'
           >
             <Link to="/">
-              <Menu.Item as='a'>
+              <Menu.Item>
                 Home
               </Menu.Item>
             </Link>
             <Link to="/about">
-              <Menu.Item as='a'>
+              <Menu.Item>
                 About Us
               </Menu.Item>
             </Link>
             <Link to="/cabins">
-              <Menu.Item as='a'>
+              <Menu.Item>
                 Rooms
               </Menu.Item>
             </Link>
             <Link to="/reservation">
-              <Menu.Item as='a'>
+              <Menu.Item>
                 Reservations
               </Menu.Item>
             </Link>
             <Link to="/feature">
-              <Menu.Item as='a'>
+              <Menu.Item>
                 Features
               </Menu.Item>
             </Link>
             <Link to="/blog">
-              <Menu.Item as='a'>
+              <Menu.Item>
                 Blog
               </Menu.Item>
             </Link>
             <Link to="/contact">
-              <Menu.Item as='a'>
+              <Menu.Item>
                 Contact
               </Menu.Item>
             </Link>
