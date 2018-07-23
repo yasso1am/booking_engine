@@ -69,14 +69,22 @@ class Cabins extends React.Component {
           </CardIcon>
           <CardContent>
             <CabinPrice>${cabin.base_price}/night</CabinPrice>
+            <br/>
             <CardDescription>
               {" "}
-              A beautiful cabin - awaiting your stay{" "}
+              - Balcony and a separate sitting areas{" "}
+              {" "} <br/>
+              - Fully stocked kitchen{" "}
+              {" "} <br/>
+              - Flat Screen TV with free WiFi{" "}
+              {" "} <br/>
+              - FREE cancellation one day before arrival{" "}
+              {" "}
             </CardDescription>
           </CardContent>
         </DisplayCard>
-       ) 
-    })
+        <Divider hidden/>
+    ));
   };
 
   loadMore = () => {
@@ -95,14 +103,15 @@ class Cabins extends React.Component {
     return (
       <Grid stackable>
         <Grid.Row>
-          <Grid.Column mobile={4} tablet={8} computer={16}>
+          <Grid.Column mobile={4} computer={16}>
             <HeaderImage>
-              <Header as="h1" inverted>
-                {" "}
-                All Cabins{" "}
-              </Header>
+              <HeaderText>
+            
+                OUR CABINS
+              </HeaderText>
             </HeaderImage>
             <Container>
+              <Divider hidden />
               <Dropdown
                 placeholder="Filter by type"
                 fluid
@@ -111,7 +120,9 @@ class Cabins extends React.Component {
                 value={category}
                 onChange={this.handleChange}
               />
-              { category && 
+              <Divider hidden />
+              <Divider hidden />
+              {category && (
                 <Button
                   fluid
                   basic
@@ -119,7 +130,11 @@ class Cabins extends React.Component {
                 >
                   Clear Filters
                 </Button>
-              }
+              )}
+              <Divider hidden />
+              <CardGroup itemsPerRow={1}>
+                {this.displayRooms()}
+              </CardGroup>
               <Divider hidden />
               <InfiniteScroll
                 pageStart={page}
@@ -142,30 +157,33 @@ class Cabins extends React.Component {
 };
 
 const HeaderImage = styled.div`
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  url("https://upload.wikimedia.org/wikipedia/commons/5/53/Post_and_Beam_Barn_Kitchen.jpg");
+  background-image: url(https://images.unsplash.com/photo-1504643039591-52948e3ddb47?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=caa0ffb3f714ebc5ffded0426b7ff785&auto=format&fit=crop&w=800&q=60);
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 35vh;
+  height: 650px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
-  color: white;
+  
 `;
+
+const HeaderText = styled.h1`
+  font-size: 55px;
+  color: white;
+`
 
 const CabinLink = styled(Link)`
   display: flex;
   justify-content: center;
   width: 20vw;
-  color: slategray;
+  color: darkgreen;
 `;
 
 const DisplayCard = styled.div`
   display: flex;
   border-radius: 6px;
-  border: solid slategray 6px;
+  border: solid black 6px;
   height: 200px;  
 `;
 
@@ -189,7 +207,7 @@ const CardContent = styled.h4`
 
 const CardIcon = styled.div`
   width: 20%;
-  padding-top: 20px;
+  padding-top: 75px;
   color: blue;
 `;
 
@@ -200,9 +218,10 @@ const CabinPrice = styled.div`
 `;
 
 const CardDescription = styled.div`
-  color: slategray;
+  color: #142111;
   justify-content: center;
   font-size: 15px;
+ 
 `;
 
 const CardGroup = styled.div`

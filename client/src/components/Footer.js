@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	height: 120px;
+	height: 155px;
 	background-color: #504B3A;
 `
 const Paragraph = styled.div`
