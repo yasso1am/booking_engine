@@ -53,91 +53,91 @@ class ContactUsForm extends Component {
             { key: 'r', text: 'Reservation Question', value: 'Reservation_Question', name: 'Reservation_Question'},
         ]
 		return(  
-            <div>
-                <MainHeader></MainHeader>
-                <Header as='h1' textAlign='center'>Contact Us</Header>
-                    <Container>
-                    <Form onSubmit={this.handleSubmit}>    
-                    <Form.Field widths='equal'>
-                    <label htmlFor='contact'></label>
-                        <Form.Group widths='equal'>
-                            <Form.Dropdown
-                                value={subject}
-                                selection
-                                label="Subject"
-                                options={subjectOptions}
-                                placeholder="Subject"
-                                onChange={this.handleSubjectChange} 
-                                />
-                            <Form.Input 
-                                fluid label='First name' 
-                                placeholder='First name' 
-                                id="first_name"
-                                name="first_name"
-                                autoComplete="given-name"                        
-                                value={first_name} 
-                                onChange={this.handleChange}
-                                />
-                            <Form.Input 
-                                fluid label='Last name' 
-                                placeholder='Last name'
-                                id='last_name' 
-                                name='last_name'
-                                autoComplete='family-name'
-                                value={last_name} 
-                                onChange={this.handleChange}
-                                />
-                        </Form.Group>
-                                <Form.Group widths='equal'>
-                                    <Form.Input
-                                        fluid label='Email' 
-                                        id='email' 
-                                        name="email"
-                                        autoComplete="email" 
-                                        placeholder='email' 
-                                        value={email} 
-                                        onChange={this.handleChange}
-                                        />
-                                    <Form.Input
-                                        fluid label='Phone' 
-                                        id='phone' 
-                                        name="phone"
-                                        autoComplete='tel-national' 
-                                        placeholder='xxx-xx  ' 
-                                        value={phone} 
-                                        onChange={this.handleChange}
-                                        />
-                                </Form.Group>
-                                    <Form.TextArea 
-                                        fluid label='Message'
-                                        placeholder='Tell us more about ...' 
-                                        id='text' 
-                                        name='text'
-                                        autoComplete='message'
-                                        value={text} 
-                                        onChange={this.handleChange}
-                                        />
-                                   
-                                        <Button positive
-                                            type="submit" 
-                                            value="Submit">Submit
-                                        </Button>
-                                  
-                    </Form.Field>
-                    </Form> 
-                    </Container>
-                </div>
-        )
-    }
+      <div>
+        <MainHeader></MainHeader>
+        <Header as="h1" textAlign='center'>Contact Us</Header>
+        <Container>
+          <Form onSubmit={this.handleSubmit}>    
+            <Form.Field widths='equal'>
+              <label htmlFor='contact'></label>
+              <Form.Group widths='equal'>
+                <Form.Dropdown
+                  value={subject}
+                  selection
+                  label="Subject"
+                  options={subjectOptions}
+                  placeholder="Subject"
+                  onChange={this.handleSubjectChange} 
+                />
+                <Form.Input 
+                  fluid label='First name' 
+                  placeholder='First name' 
+                  id="first_name"
+                  name="first_name"
+                  autoComplete="given-name"                        
+                  value={first_name} 
+                  onChange={this.handleChange}
+                />
+                <Form.Input 
+                  fluid label='Last name' 
+                  placeholder='Last name'
+                  id='last_name' 
+                  name='last_name'
+                  autoComplete='family-name'
+                  value={last_name} 
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+              <Form.Group widths='equal'>
+                <Form.Input
+                  fluid label='Email' 
+                  id='email' 
+                  name="email"
+                  autoComplete="email" 
+                  placeholder='email' 
+                  value={email} 
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  fluid label='Phone' 
+                  id='phone' 
+                  name="phone"
+                  autoComplete='tel-national' 
+                  placeholder='xxx-xx  ' 
+                  value={phone} 
+                  onChange={this.handleChange}
+                />
+                </Form.Group>
+              <Form.TextArea 
+                fluid label='Message'
+                placeholder='Tell us more about ...' 
+                id='text' 
+                name='text'
+                autoComplete='message'
+                value={text} 
+                onChange={this.handleChange}
+              />            
+              <Button
+                positive
+                type="submit" 
+                value="Submit">
+                Submit
+              </Button>                   
+            </Form.Field>
+          </Form> 
+        </Container>
+      </div>
+    )
+  }
 }
 
     
 const MainHeader = styled.div`
-    background-image: url(https://images.unsplash.com/photo-1488441770602-aed21fc49bd5?ixlib=rb-0.3.5&s=07ba5eba4f4a1d7963d1b9cbf00e5667&auto=format&fit=crop&w=2550&q=80);
+    background-image: url(https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=35464e00bbef1a93e6958980d587acb5);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat; 
-    height: 250px;
+    height: 400px;
     text-align: center;
     display: flex;
     overflow: scroll;
