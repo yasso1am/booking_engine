@@ -145,6 +145,7 @@ const MainHeader = styled.div`
   height: 500px;
   justify-content: center;
 `
+
 const Greating = styled.div`
   flex: 1;
   justify-content: center;

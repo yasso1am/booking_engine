@@ -6,7 +6,8 @@ import styled from "styled-components";
 import {
   Menu,
 } from "semantic-ui-react";
-
+import ContactUsForm from './ContactUsForm';
+import LogoMakr_TerraNova from '../components/StyledComponents/image/LogoMakr_TerraNova.png';
 
 class NavBar extends Component {
   rightNavs = () => {
@@ -36,15 +37,25 @@ class NavBar extends Component {
   render() {
     const { user } = this.props;
     return (
-      <Spacer>
-        <StyledMenu fixed="top" pointing secondary>
+     <Spacer>
+        <StyledMenu fixed="top" pointing boarderless secondary>
           { user.role === 'admin' && 
             <Link to="/admin_dashboard">
               <Menu.Item name="Dashboard" />
             </Link>
           }
+          
           <Link to="/home">
-            <Menu.Item name="home" />
+            <Menu.Item>
+              <a>
+                <img src={LogoMakr_TerraNova} 
+                      weign="80" 
+                      height="40"
+                      name="home"
+                      important
+                      />
+              </a>
+            </Menu.Item>
           </Link>
           <Link to="/about">
             <Menu.Item name="about us" />
@@ -62,14 +73,16 @@ class NavBar extends Component {
             <Menu.Item name="Contact Us" />
           </Link>
           {this.rightNavs()}
+          
         </StyledMenu>
-      </Spacer>
+    </Spacer>  
     );
   }
 }
 
+
 const Spacer = styled.div`
-  padding-top: 35px;
+  padding-top: 20px;
 `;
 
 const StyledMenu = styled(Menu)`
