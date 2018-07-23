@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { setFlash } from './flash'
-
 const CONTACTS = 'CONTACTS'
 const ADD_CONTACT = 'ADD_CONTACT'
 const EDIT_CONTACT = 'DELECT_ITEM'
