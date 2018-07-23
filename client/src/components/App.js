@@ -94,6 +94,7 @@ class App extends Component {
               <FetchUser>
                 <Switch>
                   <Route exact path='/' component={Landing} />
+                  <Route exact path='/contact' component={ContactUsForm} />
                   <Route exact path='/home' component={Home} />
                   <Route exact path='/calendar' component={Calendar} />
                   <Route exact path='/about' component={AboutUs} />

@@ -60,17 +60,8 @@ class NavBar extends Component {
           <Link to="/ammenities">
             <Menu.Item name="Ammenities" />
           </Link>
-          <Link to="/contactusform">
+          <Link to="/contact">
             <Menu.Item name="Contact Us" />
-          </Link>
-          <Link to="/ReservationForm">
-            <Menu.Item name='Reservation' />
-          </Link>
-          <Link to="/feature">
-            <Menu.Item name='Features' />
-          </Link>
-          <Link to='/about'>
-            <Menu.Item name='About Us' />
           </Link>
           {this.rightNavs()}
         </StyledMenu>
