@@ -8,6 +8,7 @@ import Home from './Home';
 import PromoCodesIndex from './PromoCodesIndex';
 import Statistics from './Statistics';
 import Employees from './Employees';
+import Calendar from './Calendar';
 
 class AdminDashboard extends React.Component {
 	state = { activeItem: '', component: '' };
@@ -17,16 +18,14 @@ class AdminDashboard extends React.Component {
 	showActiveItem = () => {
 		const { component } = this.state;
 		switch(component) {
-			case 'AboutUs':
-				return <AboutUs />
-			case 'Home':
-				return <Home />
 			case 'Promo Codes':
 				return <PromoCodesIndex />
 			case 'Statistics':
 				return <Statistics />
 			case 'Employees':
 				return <Employees />
+			case 'Reservations':
+				return <Calendar />
 			default:
 				return null
 		}
@@ -41,8 +40,6 @@ class AdminDashboard extends React.Component {
 						<Menu.Item name='Reservations' active={activeItem === 'Reservations'} onClick={this.handleItemClick} />
 						<Menu.Item name='Employees' active={activeItem === 'Employees'} onClick={this.handleItemClick} />
 						<Menu.Item name='Statistics' active={activeItem === 'Statistics'} onClick={this.handleItemClick} />
-						<Menu.Item name='AboutUs' active={activeItem === 'AboutUs'} onClick={this.handleItemClick} />
-						<Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
 						<Menu.Item name='Promo Codes' active={activeItem === 'Promo Codes'} onClick={this.handleItemClick} />
 					</Menu>
 				</Grid.Column>

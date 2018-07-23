@@ -24,7 +24,7 @@ class Calendar extends React.Component {
         views={allViews}
         startAccessor='start_date'
         endAccessor='end_date'
-        style={{height: '90vh'}}
+        style={{height: '95vh'}}
       />
     </div>
     )
