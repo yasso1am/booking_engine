@@ -145,7 +145,6 @@ const HeaderImage = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
   url("https://upload.wikimedia.org/wikipedia/commons/5/53/Post_and_Beam_Barn_Kitchen.jpg");
   background-position: center;
-  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   height: 35vh;
