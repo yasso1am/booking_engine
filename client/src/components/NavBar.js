@@ -4,10 +4,9 @@ import { connect } from "react-redux";
 import { handleLogout } from "../actions/auth";
 import styled from "styled-components";
 import {
-  Grid,
   Menu,
 } from "semantic-ui-react";
-import ContactUsForm from './ContactUsForm';
+
 
 class NavBar extends Component {
   rightNavs = () => {

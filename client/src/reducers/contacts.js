@@ -1,8 +1,5 @@
 import axios from 'axios'
 import { setFlash } from './flash'
-import { Switch, Route } from 'react-router-dom';
-import { StatisticLabel } from 'semantic-ui-react';
-import { setHeaders } from '../actions/headers';
 
 const CONTACTS = 'CONTACTS'
 const ADD_CONTACT = 'ADD_CONTACT'
