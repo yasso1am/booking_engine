@@ -45,6 +45,7 @@ class NavBar extends Component {
                       name="home"
                       alt="Company logo used as menu button"
                       />
+               [HOTEL LOGO]
             </Menu.Item>
           </Link>
           { user.role === 'admin' && 

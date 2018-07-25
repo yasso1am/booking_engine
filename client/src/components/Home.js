@@ -11,7 +11,7 @@ class Home extends Component {
           <Grid.Row>
             <Grid.Column mobile={4} computer={16}>
               <MainHeader />
-              <Headerr>TERRA NOVA CABINS</Headerr>
+              <Headerr>"[ HOTEL NAME ]"</Headerr>
             </Grid.Column>
           </Grid.Row>
           <Container>
@@ -19,8 +19,8 @@ class Home extends Component {
               <Grid.Column mobile={4} tablet={8} computer={16}>
                 <Divider hidden />
                 <Paragraph>
-                  Yellowstone Luxury Cabins is the collection of finest independent luxury cabins in Wyoming. Find out more about our offering!
-                  </Paragraph>
+                  [BEAUTIFUL DESCRIPTION ABOUT HOTEL]                  
+                </Paragraph>
                 <Divider hidden />
                 <MainParagraph>
                   "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.<br /> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
@@ -34,7 +34,7 @@ class Home extends Component {
                   <Preview picture={'https://images.unsplash.com/photo-1482275548304-a58859dc31b7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5314541653a64dda3a7057d24d259c73&auto=format&fit=crop&w=800&q=60'}>
                     <PreviewText>
                       <h1>Dining</h1>
-                      <h5>Tera Nova offers unique dining experiences with incredible views, reserve your table today!</h5>
+                      <h5>[HOTEL]offers unique dining experiences with incredible views, reserve your table today!</h5>
                     </PreviewText>
                   </Preview>
                   <Preview picture={'https://images.unsplash.com/photo-1477430428568-b07a848ad411?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=32ff06ad9c687a67ea39f6e01b3b3869&auto=format&fit=crop&w=800&q=60'}>
@@ -46,7 +46,7 @@ class Home extends Component {
                   <Preview picture={'https:images.unsplash.com/photo-1470753937643-efeb931202a9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=605dda29d7945345968d2dfb3eeb672e&auto=format&fit=crop&w=800&q=60'}>
                     <PreviewText>
                       <h1>Events</h1>
-                      <h5>Tera Nova has a beautiful event space which holds weddings, large group parties, and corporate events.<br /> <br /> Please contact us for inquiries.</h5>
+                      <h5>[HOTEL] has a beautiful event space which holds weddings, large group parties, and corporate events.<br /> <br /> Please contact us for inquiries.</h5>
                     </PreviewText>
                   </Preview>
                 </ImageContainer>

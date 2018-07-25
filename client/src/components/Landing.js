@@ -65,7 +65,7 @@ class Landing extends Component {
         <Grid.Column mobile={4} tablet={8} computer={16}>
           <MainHeader>
             <Greating>
-               Terra Nova Cabins Welcomes You In:
+               [HOTEL NAME] Welcomes You In:
               <StyledClock id="demo">
                 {day + "d " + hour + "h " + minute + "m " + second + "s "}
               </StyledClock>
