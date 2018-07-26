@@ -49,16 +49,14 @@ class ReservationForm extends Component {
 
 
   componentDidMount() {
-    const { startDate, endDate } = this.props.location.state
-    debugger
     const { user } = this.props;
     this.setState({
       firstName: user.first_name,
       lastName: user.last_name,
       email: user.email
     });
-    if ( startDate, endDate ) {
-        debugger
+    if (this.props.location.state) {
+        const { startDate, endDate } = this.props.location.state
         const userStart = new Date(startDate) 
         const userEnd = new Date(endDate) 
         const start = moment(userStart)

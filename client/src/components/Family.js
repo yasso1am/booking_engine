@@ -4,11 +4,8 @@ import { Link } from "react-router-dom";
 
 import {
   Header,
-  Segment,
   Button,
   Grid,
-  Container,
-  GridColumn,
 } from 'semantic-ui-react';
 import styled from 'styled-components';
 import DateSelector from './DateSelector'
@@ -151,37 +148,9 @@ const RoomImage = styled.div`
   }
 `;
 
-const GridInfo = styled(Grid.Column)`
-  display: flex;
-
-
-`
-
-const Info = styled.h2`
-  display: flex;
-`;
-
-const Paragraph = styled.h4`
-  display: flex;
-  justify-content: right;
-  justify-content: space-around;
-`;
-
-
-
 const Calendar = styled(DateSelector)`
   display: flex;
   justify-content: flex-end;
-`
-
-const GridCalendar = styled(Grid.Column)`
-  display: flex;
-  justify-content: flex-end;
-`
-const GridButton = styled(Grid.Column)`
-  display: flex;
-  justify-content: flex-end;
-
 `
 
 const SButton = styled(Button)`
