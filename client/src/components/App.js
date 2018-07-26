@@ -26,6 +26,8 @@ import Ammenities from './Ammenities';
 import LogoMakr_TerraNova from '../components/StyledComponents/image/LogoMakr_TerraNova.png';
 
 
+import styled from 'styled-components';
+
 class App extends Component {
   state = { visible: false };
 
@@ -98,25 +100,27 @@ class App extends Component {
           <Sidebar.Pusher>
             <FetchUser>
               <FetchUser>
-                <Switch>
-                  <Route exact path='/' component={Landing} />
-                  <Route exact path='/contact' component={ContactUsForm} />
-                  <Route exact path='/home' component={Home} />
-                  <Route exact path='/calendar' component={Calendar} />
-                  <Route exact path='/about' component={AboutUs} />
-                  <Route exact path='/cabins' component={Cabins} />
-                  <Route exact path='/gallery' component={Gallery1} />
-                  <Route exact path='/employees' component={Employees} />
-                  <Route exact path='/ammenities' component={Ammenities} />
-                  <ProtectedRoute exact path='/reservation' component={ReservationForm} />
-                  <ProtectedRoute exact path='/admin_promo_code_add' component={AdminPromoCodeForm} />
-                  <ProtectedRoute exact path='/admin_dashboard' component={AdminDashboard} />
-                  <Route exact path='/single' component={Single} />
-                  <Route exact path='/family' component={Family} />
-                  <AuthRoute exact path='/login' component={Login} />
-                  <AuthRoute exact path='/register' component={Register} />
-                  <Route component={NoMatch} />
-                </Switch>
+                <PaddedDiv>
+                  <Switch>
+                    <Route exact path='/' component={Landing} />
+                    <Route exact path='/contact' component={ContactUsForm} />
+                    <Route exact path='/home' component={Home} />
+                    <Route exact path='/calendar' component={Calendar} />
+                    <Route exact path='/about' component={AboutUs} />
+                    <Route exact path='/cabins' component={Cabins} />
+                    <Route exact path='/gallery' component={Gallery1} />
+                    <Route exact path='/employees' component={Employees} />
+                    <Route exact path='/ammenities' component={Ammenities} />
+                    <ProtectedRoute exact path='/reservation' component={ReservationForm} />
+                    <ProtectedRoute exact path='/admin_promo_code_add' component={AdminPromoCodeForm} />
+                    <ProtectedRoute exact path='/admin_dashboard' component={AdminDashboard} />
+                    <Route exact path='/single' component={Single} />
+                    <Route exact path='/family' component={Family} />
+                    <AuthRoute exact path='/login' component={Login} />
+                    <AuthRoute exact path='/register' component={Register} />
+                    <Route component={NoMatch} />
+                  </Switch>
+                </PaddedDiv>
               </FetchUser>
             </FetchUser>
           </Sidebar.Pusher>
@@ -125,5 +129,9 @@ class App extends Component {
     );
   }
 }
+
+const PaddedDiv = styled.div`
+  padding-top: 25px;
+`
 
 export default App;
