@@ -46,13 +46,28 @@ class ReservationForm extends Component {
     code: "",
   };
 
+
+
   componentDidMount() {
+    const { startDate, endDate } = this.props.location.state
+    debugger
     const { user } = this.props;
     this.setState({
       firstName: user.first_name,
       lastName: user.last_name,
-      email: user.email,
+      email: user.email
     });
+    if ( startDate, endDate ) {
+        debugger
+        const userStart = new Date(startDate) 
+        const userEnd = new Date(endDate) 
+        const start = moment(userStart)
+        const end = moment(userEnd)
+        this.setState({ 
+          startDate: start,
+          endDate: end
+        })
+      }
   }
 
   handleSubmit = event => {
