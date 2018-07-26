@@ -95,7 +95,6 @@ const Paragraph = styled.p`
 `
 const Header = styled.h3`
 	text-align: center;
-	font-family: 'Josefin Slab';
 	font-size: 30px;
 `
 const InfoContainer = styled.div`

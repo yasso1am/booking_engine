@@ -196,7 +196,6 @@ const HeaderName = styled.h2`
   justify-content: center;
   align-items: center;
   padding: 3px;
-  font-family: 'Josefin Slab';
 `;
 
 const CabinImage = styled(Image)`

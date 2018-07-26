@@ -40,7 +40,6 @@ const Wrapper = styled.div`
 	background-color: #504B3A;
 `
 const Paragraph = styled.div`
-	font-family: 'Josefin Slab';
 	font-size: 16px;
 	color: grey;
 `

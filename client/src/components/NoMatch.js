@@ -46,7 +46,6 @@ const ErrorMessage = styled.h1`
   text-align: center;
   padding-top: 20px;
   font-size: 200px;
-  font-family: 'Josefin Slab';
   color: #F3F5F4;
 `
 
@@ -57,7 +56,6 @@ const ErrorMessageBottom = styled.h1`
   text-align: center;
   padding-top: 20px;
   font-size: 80px;
-  font-family: 'Josefin Slab';
   color: #F3F5F4;
 `
 
@@ -75,6 +73,4 @@ const ErrorButton = styled.div`
   left: 38%;
   top: 68%;
 `
-
-
 export default NoMatch;

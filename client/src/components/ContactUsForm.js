@@ -55,7 +55,7 @@ class ContactUsForm extends Component {
 		return(  
       <div>
         <MainHeader></MainHeader>
-        <Header as="h1" textAlign='center'>Contact Us</Header>
+        <TopHeader as="h1" textAlign='center' fontFamily='Josefin Slab'>Contact Us</TopHeader>
         <Container>
           <Form onSubmit={this.handleSubmit}>    
             <Form.Field widths='equal'>
@@ -141,7 +141,9 @@ const MainHeader = styled.div`
     text-align: center;
     display: flex;
     overflow: scroll;
-    font-family: 'Josefin Slab';
     `;
+const TopHeader = styled.h1`
+  text-align: center;
+`
 
 export default connect()(ContactUsForm);

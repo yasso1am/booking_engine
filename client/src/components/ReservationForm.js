@@ -180,7 +180,7 @@ class ReservationForm extends Component {
     } = this.state;
 
     return (
-      <Grid stackable style={styles.font}>
+      <Grid stackable>
         <Grid.Column mobile={4} tablet={8} computer={16}>
           <Grid.Row>
             <HeaderText>
@@ -382,7 +382,6 @@ const MyContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-family: "Josefin Slab";
 `;
 
 const HeaderText = styled.div`
@@ -396,13 +395,6 @@ const SubHeader = HeaderText.extend`
   font-size: 2em;
   padding: 20px;
 `
-
-const styles = {
-  font: {
-    fontFamily: "Josefin Slab"
-  }
-};
-
 const mapStateToProps = state => {
   return { user: state.user };
 };

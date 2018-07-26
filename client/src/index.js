@@ -14,8 +14,8 @@ injectGlobal`
         src: url('https://fonts.googleapis.com/css?family=Josefin+Slab') format('embedded-opentype');
     }
 
-    html, body, div, h1, h2, h3, p, h4, button {
-    	font-family: 'Josefin Slab'
+    html * {
+      font-family: 'Josefin Slab' !important;
     }
 `
 

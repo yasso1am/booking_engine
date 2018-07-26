@@ -86,7 +86,6 @@ const Preview = styled.div`
   color: transparent;
   flex-direction: column;
   justify-content: space-around;
-  
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.4);
@@ -117,20 +116,16 @@ const Headerr = styled.h1`
   padding-top: 20px;
   font-size: 60px;
   color: white;
-  font-family: 'Josefin Slab';
 `
 
 const Paragraph = styled.h1`
-  font-family: 'Josefin Slab';
   text-align: center;
   font-weight: 700;
 `
 
 const MainParagraph = styled.p`
   text-align: center;
-  font-family: 'Josefin Slab';
   padding-bottom: 80px;
   font-size: 25px;
 `
-
 export default Home;
