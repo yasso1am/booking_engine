@@ -37,13 +37,12 @@ class NavBar extends Component {
     const { user } = this.props;
     return (
      <Spacer>
-        <StyledMenu fixed="top" pointing boarderless secondary>
+        <StyledMenu fixed="top" pointing borderless secondary>
           <Link to="/home">
             <Menu.Item>
                 <img src={LogoMakr_TerraNova} 
                       width="40"
                       name="home"
-                      important
                       alt="Company logo used as menu button"
                       />
             </Menu.Item>

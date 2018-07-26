@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addContact } from '../reducers/contacts';
-import { Container, Header, Button, Form } from 'semantic-ui-react';
+import { Container, Button, Form } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 class ContactUsForm extends Component {

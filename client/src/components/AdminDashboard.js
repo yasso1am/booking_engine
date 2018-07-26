@@ -3,8 +3,6 @@ import {
 	Menu,
 	Grid, 
 } from 'semantic-ui-react';
-import AboutUs from './AboutUs';
-import Home from './Home';
 import PromoCodesIndex from './PromoCodesIndex';
 import Statistics from './Statistics';
 import Employees from './Employees';

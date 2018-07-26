@@ -50,6 +50,7 @@ class App extends Component {
                       width="40"
                       name="home"
                       important
+                      alt="The logo as a menu button"
                       />
         </Menu.Item>
         </Responsive>

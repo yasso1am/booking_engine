@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import { setFlash } from "../actions/flash";
 import { connect } from "react-redux";
-import { Grid, Header } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import styled from "styled-components";
 
 class DateSelector extends React.Component {
