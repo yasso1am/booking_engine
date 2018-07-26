@@ -15,7 +15,7 @@ injectGlobal`
     }
 
     html * {
-      font-family: 'Josefin Slab' !important;
+    	font-family: 'Josefin Slab' !important;
     }
 `
 

@@ -21,7 +21,7 @@ class Calendar extends React.Component {
       <BigCalendar
         events={reservations}
         titleAccessor='special_requests'
-        views={allViews}
+        views={['month']}
         startAccessor='start_date'
         endAccessor='end_date'
         style={{height: '95vh'}}

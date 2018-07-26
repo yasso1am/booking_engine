@@ -1,5 +1,6 @@
 class Api::CabinsController < ApplicationController
     before_action :set_cabin, only: [:show, :update, :destroy]
+    before_action :set_page, only: [:index]
 
     def index
         cabins = Cabin.page(@page)
@@ -43,6 +44,28 @@ class Api::CabinsController < ApplicationController
     end
 
     def set_page
-      @page = params[:page] || 1
+      @page = params[:page] ||= 1
     end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
