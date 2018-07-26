@@ -1,6 +1,6 @@
 {
   "name": "create-repack-app",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
     "deploy": "cp -a client/build/. public/",
