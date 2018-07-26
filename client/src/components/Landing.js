@@ -81,6 +81,7 @@ class Landing extends Component {
                     <input
                       placeholder='First Name'
                       name='first_name'
+                      autoComplete="given-name"
                       required
                       value={first_name}
                       onChange={this.handleChange}
@@ -92,6 +93,7 @@ class Landing extends Component {
                       placeholder='Last Name'
                       name='last_name'
                       required
+                      autoComplete="family-name"
                       value={last_name}
                       onChange={this.handleChange}
                     />
@@ -100,6 +102,7 @@ class Landing extends Component {
                     <label htmlFor='email'>Email</label>
                     <input
                       placeholder='Email'
+                      autoComplete="email"
                       name='email'
                       required
                       value={email}
@@ -112,6 +115,7 @@ class Landing extends Component {
                       placeholder='Email Confirmation'
                       name="emailConfirmation"
                       type='email'
+                      autoComplete="email"
                       required
                       value={emailConfirmation}
                       onChange={this.handleChange}

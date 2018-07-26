@@ -75,17 +75,16 @@ render() {
         thumbnailHeight: 212,
         caption: "Cabin"
 },
-
 ]
-
   return(
-
-        <Container>
+        <div>
         <MainHeader>
-            <Header as="h1" color="inverted" textAlign="center">Gallery</Header> 
-            </MainHeader>                    
-            <Gallery images={IMAGES} />
-       </Container>
+        <Header as="h1" color="inverted" textAlign="center">Gallery</Header> 
+        </MainHeader>                    
+        <Container>
+        <Gallery images={IMAGES} />
+        </Container>
+        </div>
     );
   }
 }

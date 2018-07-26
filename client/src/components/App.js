@@ -88,7 +88,7 @@ class App extends Component {
             </Link>
             <Link to="/ammenities">
               <Menu.Item>
-                Ammenities
+                Gallery
               </Menu.Item>
             </Link>
             <Link to="/contact">
@@ -109,7 +109,7 @@ class App extends Component {
                   <Route exact path='/cabins' component={Cabins} />
                   <Route exact path='/gallery' component={Gallery1} />
                   <Route exact path='/employees' component={Employees} />
-                  <Route exact path='/ammenities' component={Ammenities} />
+                  <Route exact path='/ammenities' component={Gallery1} />
                   <ProtectedRoute exact path='/reservation' component={ReservationForm} />
                   <ProtectedRoute exact path='/reservation/:dates' component={ReservationForm} />
                   <ProtectedRoute exact path='/admin_promo_code_add' component={AdminPromoCodeForm} />
