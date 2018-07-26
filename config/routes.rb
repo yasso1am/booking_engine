@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   namespace :api do
     resources :cabins
     resources :promo_codes
-    resources :reservations
+    resources :reservations 
     resources :user_promo_codes
     resources :users, only: [:index, :show, :update, :destroy]
     get 'employees', to: 'users#employees'
     get 'all_reservations', to: 'reservations#all_reservations'
-
+    get 'resStats', to: 'reservations#reservation'
+    
     resources :contacts, only: [:create, :index]
   end
 

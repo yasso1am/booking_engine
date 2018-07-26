@@ -34,6 +34,9 @@ class Api::ReservationsController < ApplicationController
     @reservation.destroy
   end
 
+  def reservation 
+    render json: Reservation.reservation 
+  end
 
   private
     def set_reservation

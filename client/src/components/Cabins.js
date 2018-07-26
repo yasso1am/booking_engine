@@ -16,10 +16,8 @@ import {
 import styled from "styled-components";
 import Footer from "./Footer";
 import InfiniteScroll from 'react-infinite-scroller'
-
 class Cabins extends React.Component {
   state = { category: "", page: 0, total_pages: 0, cabins: [] };
-
   componentDidMount() {
     axios.get('/api/cabins')
       .then(res => {
@@ -27,11 +25,9 @@ class Cabins extends React.Component {
         this.props.dispatch(setHeaders(res.headers))
       });
   };
-
   handleChange = (e, data) => {
     this.setState({ category: data.value });
   };
-
   categoryOptions = () => {
     return [
       { key: 4, text: "Single", value: "single" },
@@ -40,7 +36,6 @@ class Cabins extends React.Component {
       { key: 2, text: "ADA Accessible", value: "ada_accessible" }
     ];
   };
-
   displayRooms = () => {
     const { category, cabins } = this.state;
     let visible = cabins;
@@ -52,7 +47,6 @@ class Cabins extends React.Component {
       if (category === "ada_accessible")
         visible = cabins.filter(c => c.ada_accessible === true);
     }
-
     return visible.map( (cabin, i) => {
       return (
         <Fragment key={i}>
@@ -89,7 +83,6 @@ class Cabins extends React.Component {
       )
     });
   };
-
   loadMore = () => {
     const page = this.state.page + 1
     axios.get(`/api/cabins?page=${page}`)
@@ -100,7 +93,6 @@ class Cabins extends React.Component {
         this.props.dispatch({ type: 'HEADERS', headers })
       })
   };
-
   render() {
     const { category, page, total_pages } = this.state;
     return (
@@ -158,7 +150,6 @@ class Cabins extends React.Component {
     );
   };
 };
-
 const HeaderImage = styled.div`
   background-image: url(https://images.unsplash.com/photo-1504643039591-52948e3ddb47?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=caa0ffb3f714ebc5ffded0426b7ff785&auto=format&fit=crop&w=800&q=60);
   background-size: cover;
@@ -170,61 +161,51 @@ const HeaderImage = styled.div`
   align-items: center;
   
 `;
-
 const HeaderText = styled.h1`
   font-size: 55px;
   color: white;
 `
-
 const CabinLink = styled(Link)`
   display: flex;
   justify-content: center;
   width: 20vw;
   color: darkgreen;
 `;
-
 const DisplayCard = styled.div`
   display: flex;
   border-radius: 6px;
   border: solid black 6px;
   height: 200px;  
 `;
-
 const HeaderName = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 3px;
 `;
-
 const CabinImage = styled(Image)`
   paddign: 10px;
   height: 190px;
   width: 30%;
 `;
-
 const CardContent = styled.h4`
   color: red;
 `;
-
 const CardIcon = styled.div`
   width: 20%;
   padding-top: 75px;
   color: blue;
 `;
-
 const CabinPrice = styled.div`
   justify-content: center;
   color: darkgreen;
   font-size: 25px;
 `;
-
 const CardDescription = styled.div`
   color: #142111;
   justify-content: center;
   font-size: 15px;
 `;
-
 const CardGroup = styled.div`
   width: 100%;
   radius: 60%;
