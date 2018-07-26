@@ -23,6 +23,8 @@ import { Sidebar, Menu, Segment, Button, Responsive } from 'semantic-ui-react';
 import ContactUsForm from './ContactUsForm';
 import ReservationForm from './ReservationForm';
 import Ammenities from './Ammenities';
+import LogoMakr_TerraNova from '../components/StyledComponents/image/LogoMakr_TerraNova.png';
+
 
 class App extends Component {
   state = { visible: false };
@@ -38,7 +40,16 @@ class App extends Component {
           <NavBar />
         </Responsive>
         <Responsive maxWidth={768}>
-          <Button onClick={this.handleButtonClick}>Menu</Button>
+        <Menu.Item 
+          as={Button}
+          onClick={this.handleButtonClick}
+          >
+                <img src={LogoMakr_TerraNova} 
+                      width="40"
+                      name="home"
+                      important
+                      />
+        </Menu.Item>
         </Responsive>
         <Sidebar.Pushable as={Segment}>
           <Sidebar
@@ -48,11 +59,12 @@ class App extends Component {
             inverted
             onHide={this.handleSidebarHide}
             vertical
+            onClick={this.handleSidebarHide}
             visible={this.state.visible}
             width='thin'
           >
             <Link to="/">
-              <Menu.Item>
+              <Menu.Item >
                 Home
               </Menu.Item>
             </Link>
@@ -71,19 +83,14 @@ class App extends Component {
                 Reservations
               </Menu.Item>
             </Link>
-            <Link to="/feature">
+            <Link to="/ammenities">
               <Menu.Item>
-                Features
-              </Menu.Item>
-            </Link>
-            <Link to="/blog">
-              <Menu.Item>
-                Blog
+                Ammenities
               </Menu.Item>
             </Link>
             <Link to="/contact">
               <Menu.Item>
-                Contact
+                Contact Us
               </Menu.Item>
             </Link>
           </Sidebar>

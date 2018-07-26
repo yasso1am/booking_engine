@@ -53,43 +53,43 @@ class Cabins extends React.Component {
       if (category === "ada_accessible")
         visible = cabins.filter(c => c.ada_accessible === true);
     }
-    
-    return visible.map((cabin, i) => {
+
+    return visible.map( (cabin, i) => {
       return (
-        <Container>
-        <DisplayCard key={i}>
-          <CabinImage src="https://images.unsplash.com/photo-1481934633871-fc3e3ba6f0e0?ixlib=rb-0.3.5&s=8c6be721d9bf41ab941fd82a50802ff7&auto=format&fit=crop&w=800&q=60" />
-          <CabinLink to={`/${cabin.size}`}>
-            <HeaderName>
-              {" "}
-              {cabin.size.charAt(0).toUpperCase() + cabin.size.substr(1)}{" "}
-            </HeaderName>
-          </CabinLink>
-          <CardIcon>
-            {cabin.ada_accessible && <Icon name="handicap" size="big" />}
-            {cabin.smoking_room && <Icon name="gripfire" size="big" />}
-          </CardIcon>
-          <CardContent>
-            <CabinPrice>${cabin.base_price}/night</CabinPrice>
-            <br/>
-            <CardDescription>
-              {" "}
-              - Balcony and a separate sitting areas{" "}
-              {" "} <br/>
-              - Fully stocked kitchen{" "}
-              {" "} <br/>
-              - Flat Screen TV with free WiFi{" "}
-              {" "} <br/>
-              - FREE cancellation one day before arrival{" "}
-              {" "}
-            </CardDescription>
-          </CardContent>
-        </DisplayCard>
-        <Divider hidden/>
-        </Container>
-    );
-  });
-}
+        <Fragment>
+          <DisplayCard key={i}>
+            <CabinImage src="https://upload.wikimedia.org/wikipedia/commons/b/be/Sydnor_Log_Cabin.png" />
+            <CabinLink to={`/${cabin.size}`}>
+              <HeaderName>
+                {" "}
+                { cabin.size.charAt(0).toUpperCase() + cabin.size.substr(1) }{" "}
+              </HeaderName>
+            </CabinLink>
+            <CardIcon>
+              {cabin.ada_accessible && <Icon name="handicap" size="big" />}
+              {cabin.smoking_room && <Icon name="gripfire" size="big" />}
+            </CardIcon>
+            <CardContent>
+              <CabinPrice>${cabin.base_price}/night</CabinPrice>
+              <br/>
+              <CardDescription>
+                {" "}
+                - Balcony and a separate sitting areas{" "}
+                {" "} <br/>
+                - Fully stocked kitchen{" "}
+                {" "} <br/>
+                - Flat Screen TV with free WiFi{" "}
+                {" "} <br/>
+                - FREE cancellation one day before arrival{" "}
+                {" "}
+              </CardDescription>
+            </CardContent>
+          </DisplayCard>
+          <Divider hidden />
+        </Fragment>
+      )
+    });
+  };
 
   loadMore = () => {
     const page = this.state.page + 1

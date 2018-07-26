@@ -6,7 +6,6 @@ import styled from "styled-components";
 import {
   Menu,
 } from "semantic-ui-react";
-import ContactUsForm from './ContactUsForm';
 import LogoMakr_TerraNova from '../components/StyledComponents/image/LogoMakr_TerraNova.png';
 
 class NavBar extends Component {
@@ -45,6 +44,7 @@ class NavBar extends Component {
                       width="40"
                       name="home"
                       important
+                      alt="Company logo used as menu button"
                       />
             </Menu.Item>
           </Link>
