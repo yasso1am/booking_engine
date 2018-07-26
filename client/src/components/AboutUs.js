@@ -53,7 +53,7 @@ class AboutUs extends Component {
 										<InfoBubble>50 Cabins</InfoBubble>
 										<InfoBubble>5 Stars</InfoBubble>
 										<InfoBubble>100 Acres</InfoBubble>
-										<InfoBubble>10 Buildings</InfoBubble>
+										<InfoBubble>Luxury</InfoBubble>
 									</InfoContainer>
 									<Divider hidden />
 								</Grid.Column>
@@ -82,9 +82,9 @@ class AboutUs extends Component {
 
 const MainHeader = styled.div`
 	display: flex;
-	background-image: url('https://icdn3.themanual.com/image/themanual/cabin-in-the-woods-on-a-lake.jpg');
+	background-image: url('https://images.unsplash.com/photo-1507992997513-5aa7c22c613f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=40a90a1424d129085983f69fcaf3a810&auto=format&fit=crop&w=1349&q=80');
 	background-repeat: no-repeat;
-	background-position: center; 
+	background-position: center top; 
 	width: 100%;
 	height: 500px;
 `
@@ -100,12 +100,12 @@ const Header = styled.h3`
 `
 const InfoContainer = styled.div`
 	height: 150px;
-	background-color: #00224B;
+	background-color: #202a0a;
 	border: 1px solid white;
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
 	padding: 20px;
+	justify-content: center;
 `
 const InfoBubble = styled.div`
 	color: white;
@@ -117,5 +117,7 @@ const InfoBubble = styled.div`
 	border: 1px solid white;
 	border-radius: 50px;
 	word-wrap: normal;
+	margin: 30px;
+	font-size: 20px;
 `
 export default AboutUs;

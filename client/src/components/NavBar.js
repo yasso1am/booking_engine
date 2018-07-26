@@ -39,24 +39,20 @@ class NavBar extends Component {
     return (
      <Spacer>
         <StyledMenu fixed="top" pointing boarderless secondary>
+          <Link to="/home">
+            <Menu.Item>
+                <img src={LogoMakr_TerraNova} 
+                      width="40"
+                      name="home"
+                      important
+                      />
+            </Menu.Item>
+          </Link>
           { user.role === 'admin' && 
             <Link to="/admin_dashboard">
               <Menu.Item name="Dashboard" />
             </Link>
           }
-          
-          <Link to="/home">
-            <Menu.Item>
-              <a>
-                <img src={LogoMakr_TerraNova} 
-                      weign="80" 
-                      height="40"
-                      name="home"
-                      important
-                      />
-              </a>
-            </Menu.Item>
-          </Link>
           <Link to="/about">
             <Menu.Item name="about us" />
           </Link>
@@ -82,12 +78,12 @@ class NavBar extends Component {
 
 
 const Spacer = styled.div`
-  padding-top: 20px;
+  padding-top: 0px;
 `;
 
 const StyledMenu = styled(Menu)`
   background-color: #fff !important;
-  height: 50px;
+  height: 37px;
 `;
 
 const mapStateToProps = state => {

@@ -137,12 +137,12 @@ class Landing extends Component {
 
 const MainHeader = styled.div`
   display: flex;
-	background-image: url('https://images.unsplash.com/photo-1518869675078-080f6acfe69d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2387e5c339843592cab940d81e4b6087');
+	background-image: url('https://images.unsplash.com/photo-1520406153111-4d1d4cfd3684?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2d83f67c2d5baa1cdb4286e7e22369e3');
 	background-repeat: no-repeat;
   background-position: center bottom; 
   background-size: cover;
 	width: 100%;
-  height: 500px;
+  height: 85vh;
   justify-content: center;
 `
 
@@ -155,7 +155,8 @@ const Greating = styled.div`
   margin-top: 10px;
   width: 100%;
   align-self: center;
-  color: #fff;
+  color: white;
+  font-weight: 700;
 `
 
 const StyledClock = styled.div`
