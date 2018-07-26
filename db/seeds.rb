@@ -43,7 +43,9 @@ end
   "Wake up calls at 6am",
   "We would like blankets made of gold",
   "Please leave 20 extra towels in the bathroom",
-  "Something something picky customers..."
+  "We don't need our beds made today",
+  "Late check-out",
+  "Early check-in"
 ]
 
 36.times do
