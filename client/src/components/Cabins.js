@@ -18,7 +18,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import Handicap from '../images/handicap.svg';
 import Fire from '../images/smoking.svg';
 class Cabins extends React.Component {
-  state = { category: "", page: 0, total_pages: 0, cabins: [] };
+  state = { category: "", page: 1, total_pages: 0, cabins: [] };
   componentDidMount() {
     axios.get('/api/cabins')
       .then(res => {
@@ -102,7 +102,6 @@ class Cabins extends React.Component {
           <Grid.Column mobile={4} computer={16}>
             <HeaderImage>
               <HeaderText>
-            
                 OUR CABINS
               </HeaderText>
             </HeaderImage>
@@ -133,7 +132,7 @@ class Cabins extends React.Component {
               </CardGroup>
               <Divider hidden />
               <InfiniteScroll
-                pageStart={page}
+                pageStart={0}
                 loadMore={this.loadMore}
                 hasMore={page < total_pages}
                 loader={<div key={0}> <Loader /> </div>}

@@ -52,7 +52,7 @@ chooseColor = () => {
 }
 
 render() {     
-    const { contacts, users, reservations, singles } = this.state 
+    const { contacts, users, } = this.state 
     return(
         <Container>
             <HeadWrap>

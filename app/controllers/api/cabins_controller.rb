@@ -44,7 +44,7 @@ class Api::CabinsController < ApplicationController
     end
 
     def set_page
-      @page = params[:page] ||= 1
+      @page = params[:page]
     end
 end
 

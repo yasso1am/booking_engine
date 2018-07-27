@@ -15,7 +15,6 @@ class Calendar extends React.Component {
 
   render() {
     const {reservations} = this.state
-    let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
     return(
     <div>
       <BigCalendar
