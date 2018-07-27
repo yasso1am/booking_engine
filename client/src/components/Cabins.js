@@ -8,14 +8,15 @@ import {
   Dropdown,
   Container,
   Image,
-  Icon,
   Grid,
   Button,
   Loader,
 } from "semantic-ui-react";
 import styled from "styled-components";
 import Footer from "./Footer";
-import InfiniteScroll from 'react-infinite-scroller'
+import InfiniteScroll from 'react-infinite-scroller';
+import Handicap from '../images/handicap.svg';
+import Fire from '../images/smoking.svg';
 class Cabins extends React.Component {
   state = { category: "", page: 0, total_pages: 0, cabins: [] };
   componentDidMount() {
@@ -59,8 +60,8 @@ class Cabins extends React.Component {
               </HeaderName>
             </CabinLink>
             <CardIcon>
-              {cabin.ada_accessible && <Icon name="handicap" size="big" />}
-              {cabin.smoking_room && <Icon name="gripfire" size="big" />}
+              {cabin.smoking_room && <Image src={Fire} size='mini' rounded floated='right'  />}
+              {cabin.ada_accessible && <Image src={Handicap} size='mini' rounded floated='right'  />}
             </CardIcon>
             <CardContent>
               <CabinPrice>${cabin.base_price}/night</CabinPrice>
@@ -194,7 +195,9 @@ const CardContent = styled.h4`
 const CardIcon = styled.div`
   width: 20%;
   padding-top: 75px;
+  padding-right: 130px;
   color: blue;
+  left: 80%;
 `;
 const CabinPrice = styled.div`
   justify-content: center;
