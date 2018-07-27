@@ -17,6 +17,7 @@ import PromoCodeAdd from "./PromoCodeAdd";
 import DateSelector from "./DateSelector";
 import styled from "styled-components";
 import moment from "moment";
+import Footer from './Footer';
 
 const roomOptions = [
   { key: "single", text: "Single - sleeps up to four", value: "single" },
@@ -46,8 +47,6 @@ class ReservationForm extends Component {
     code: "",
   };
 
-
-
   componentDidMount() {
     const { user } = this.props;
     this.setState({
@@ -66,7 +65,7 @@ class ReservationForm extends Component {
           endDate: end
         })
       }
-  }
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -384,6 +383,7 @@ class ReservationForm extends Component {
               {this.displayCode()}
               <PromoCodeAdd shareCode={this.shareCode} />
             </Container>
+            <Footer />
           </Grid.Row>
         </Grid.Column>
       </Grid>

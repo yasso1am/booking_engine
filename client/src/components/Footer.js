@@ -23,9 +23,9 @@ const Wrapper = styled.div`
     flex-direction: column;
     height: 155px;
     background-color: #504B3A;
+    margin-top: 10px;
 `
 const Paragraph = styled.div`
-    font-family: 'Josefin Slab';
     font-size: 12px;
     color: grey;
 `

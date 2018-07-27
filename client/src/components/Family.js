@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import DateSelector from './DateSelector'
 import moment from 'moment';
 import { makeReservation } from "../reducers/reservations";
+import Footer from './Footer';
 
 class Family extends Component {
   state = {
@@ -105,6 +106,7 @@ class Family extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid >
+        <Footer />
       </div >
     )
   }

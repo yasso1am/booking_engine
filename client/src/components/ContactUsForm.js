@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addContact } from '../reducers/contacts';
 import { Container, Button, Form } from 'semantic-ui-react';
 import styled from 'styled-components';
+import Footer from './Footer';
 
 class ContactUsForm extends Component {
     initialState = { 
@@ -126,6 +127,7 @@ class ContactUsForm extends Component {
             </Form.Field>
           </Form> 
         </Container>
+        <Footer />
       </div>
     )
   }
