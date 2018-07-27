@@ -14,23 +14,6 @@ class Ammenities extends Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
-  showActiveItem = () => {
-    const { activeItem } = this.state;
-    switch (activeItem) {
-      case 'Gallery':
-        return <Gallery1 />
-      case 'AboutUs':
-        return <AboutUs />
-      // case "Pool & Spa":
-      //   return <Pool />
-      // case 'Breakfast':
-      //   return <Breakfast />
-      // case 'GYM':
-      //   return <GYM/>
-      default:
-        return null
-    }
-  };
 
   render() {
     const { activeItem } = this.state;
@@ -38,23 +21,8 @@ class Ammenities extends Component {
       <div>
         <Grid stackable>
           <Grid.Column mobile={4} tablet={8} computer={16}>
-            <MainImage />
-            <HeaderText as='h1' >Ammenities </HeaderText>
+            <Gallery1 />
           </Grid.Column>
-            <Grid.Column width={3}>
-              <Menu fluid vertical tabular>
-                <Menu.Item name='PoolSpa' active={activeItem === 'Pool Spa'} onClick={this.handleItemClick} />
-                <Menu.Item name='Gallery' active={activeItem === 'Gallery1'} onClick={this.handleItemClick} />
-                <Menu.Item name='Breakfast' active={activeItem === 'Breakfast'} onClick={this.handleItemClick} />
-                <Menu.Item name='AboutUs' active={activeItem === 'AboutUs'} onClick={this.handleItemClick} />
-                <Menu.Item name='GYM' active={activeItem === 'GYM'} onClick={this.handleItemClick} />
-              </Menu>
-            </Grid.Column>
-            <Grid.Column stretched width={12}>
-              <Segment>
-                {this.showActiveItem()}
-              </Segment>
-            </Grid.Column>
         </Grid>
         <Footer />
       </div>
